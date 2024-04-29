@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -10,7 +11,9 @@ const Header = () => {
         <span></span>
         <ul>
           <img src="./fee.png" alt="" />
-          <li>Creatures</li>
+          <li>
+            <NavLink to="/creatures">Creatures</NavLink>
+          </li>
           <li>Equipment</li>
           <li>Materials</li>
           <li>Monsters</li>
