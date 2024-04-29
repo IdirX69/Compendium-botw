@@ -1,17 +1,23 @@
 .header-container {
   ul {
+    display: flex;
+    flex-direction: column;
     position: absolute;
     width: 300px;
     margin: -100px 0 0 -50px;
     padding: 50px;
     padding-top: 125px;
-    background: #970101;
+    background: #970101b2;
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
-    /* to stop flickering of text in safari */
     transform-origin: 0% 0%;
     transform: translate(-100%, 0);
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    img {
+      align-self: flex-end;
+      height: 70px;
+      width: 70px;
+    }
   }
 
   ul li {
@@ -22,8 +28,8 @@
   .menuToggle {
     display: block;
     position: relative;
-    top: 50px;
-    left: 50px;
+    top: 20px;
+    left: 10px;
     z-index: 1;
     -webkit-user-select: none;
     user-select: none;

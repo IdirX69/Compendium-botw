@@ -42,18 +42,24 @@ label {
 }
 
 .header-container ul {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   width: 300px;
   margin: -100px 0 0 -50px;
   padding: 50px;
   padding-top: 125px;
-  background: #970101;
+  background: rgba(151, 1, 1, 0.6980392157);
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
-  /* to stop flickering of text in safari */
   transform-origin: 0% 0%;
   transform: translate(-100%, 0);
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+.header-container ul img {
+  align-self: flex-end;
+  height: 70px;
+  width: 70px;
 }
 .header-container ul li {
   padding: 10px 0;
@@ -62,8 +68,8 @@ label {
 .header-container .menuToggle {
   display: block;
   position: relative;
-  top: 50px;
-  left: 50px;
+  top: 20px;
+  left: 10px;
   z-index: 1;
   -webkit-user-select: none;
   -moz-user-select: none;

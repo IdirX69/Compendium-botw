@@ -9,6 +9,7 @@ const Header = () => {
         <span></span>
         <span></span>
         <ul>
+          <img src="./fee.png" alt="" />
           <li>Creatures</li>
           <li>Equipment</li>
           <li>Materials</li>
