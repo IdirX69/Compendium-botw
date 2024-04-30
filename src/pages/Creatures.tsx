@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import axios from "axios";
 import MonsterCard from "../components/MonsterCard";
+import ModalInfo from "../components/ModalInfo";
 
 const Creatures = () => {
   const [monsters, setMonsters] = useState([]);
   const [search, setSearch] = useState("");
+  const [modal, setModal] = useState(false);
   console.log(monsters);
 
   useEffect(() => {
@@ -15,6 +17,11 @@ const Creatures = () => {
       )
       .then((res) => setMonsters(res.data.data));
   }, [search]);
+
+  const handleClick = (monster) => {
+    setModal(true);
+    console.log(monster);
+  };
 
   return (
     <div className="creatures-container">
@@ -28,8 +35,11 @@ const Creatures = () => {
         {monsters
           .filter((monstr) => monstr.name.includes(search))
           .map((monster) => (
-            <MonsterCard monster={monster} />
+            <div onClick={() => handleClick(monster)}>
+              <MonsterCard monster={monster} />
+            </div>
           ))}
+        {modal && <ModalInfo />}
       </div>
     </div>
   );
