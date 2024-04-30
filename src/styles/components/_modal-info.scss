@@ -1,0 +1,25 @@
+.modal-info-container {
+  height: 70%;
+  width: 90%;
+  position: fixed;
+  background-color: #1f4934;
+  margin: 5%;
+  top: 15%;
+  span {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    padding: 10px;
+  }
+  h4 {
+    text-align: center;
+  }
+  div {
+    width: 90%;
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}

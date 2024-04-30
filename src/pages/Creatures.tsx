@@ -8,6 +8,7 @@ const Creatures = () => {
   const [monsters, setMonsters] = useState([]);
   const [search, setSearch] = useState("");
   const [modal, setModal] = useState(false);
+  const [modalInfo, setModalInfo] = useState([]);
   console.log(monsters);
 
   useEffect(() => {
@@ -19,8 +20,8 @@ const Creatures = () => {
   }, [search]);
 
   const handleClick = (monster) => {
+    setModalInfo(monster);
     setModal(true);
-    console.log(monster);
   };
 
   return (
@@ -31,6 +32,7 @@ const Creatures = () => {
         placeholder="Type to search"
         onChange={(e) => setSearch(e.target.value)}
       />
+      {modal && <ModalInfo modalInfo={modalInfo} />}
       <div className="monsters-list">
         {monsters
           .filter((monstr) => monstr.name.includes(search))
@@ -39,7 +41,6 @@ const Creatures = () => {
               <MonsterCard monster={monster} />
             </div>
           ))}
-        {modal && <ModalInfo />}
       </div>
     </div>
   );
