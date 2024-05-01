@@ -32,7 +32,7 @@ const Creatures = () => {
         placeholder="Type to search"
         onChange={(e) => setSearch(e.target.value)}
       />
-      {modal && <ModalInfo modalInfo={modalInfo} />}
+      {modal && <ModalInfo modalInfo={modalInfo} setModal={setModal} />}
       <div className="monsters-list">
         {monsters
           .filter((monstr) => monstr.name.includes(search))

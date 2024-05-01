@@ -42,7 +42,7 @@ label {
 }
 
 .creatures-container {
-  height: 100%;
+  height: 100vh;
   width: 100%;
   background-color: rgb(17, 58, 58);
 }
@@ -62,10 +62,20 @@ label {
   align-items: center;
   justify-content: center;
 }
+.creatures-container input {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 5%;
+  height: 30px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}
 
 .header-container {
   position: fixed;
   top: 0px;
+  z-index: 2;
 }
 .header-container ul {
   display: flex;
@@ -164,10 +174,11 @@ label {
 }
 
 .modal-info-container {
+  z-index: 1;
   height: 70%;
   width: 90%;
   position: fixed;
-  background-color: #1f4934;
+  background-color: #3e4d3a;
   margin: 5%;
   top: 15%;
 }
@@ -187,4 +198,17 @@ label {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.modal-info-container div p {
+  width: 90%;
+  margin: 10px;
+  z-index: 2;
+  background-color: rgba(3, 3, 3, 0.349);
+  padding: 10px;
+}
+.modal-info-container .korogu-img {
+  height: 120px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }/*# sourceMappingURL=index.css.map */
