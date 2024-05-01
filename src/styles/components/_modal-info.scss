@@ -1,6 +1,6 @@
 .modal-info-container {
   z-index: 1;
-  height: 70%;
+  min-height: 70%;
   width: 90%;
   position: fixed;
   background-color: #3e4d3a;
@@ -26,8 +26,9 @@
       width: 90%;
       margin: 10px;
       z-index: 2;
-      background-color: rgba(3, 3, 3, 0.349);
+      background-color: rgba(3, 3, 3, 0.466);
       padding: 10px;
+      border-radius: 8px;
     }
   }
   .korogu-img {
