@@ -12,8 +12,13 @@ const ModalInfo = ({ modalInfo, setModal }) => {
         <img src="./korogu.png" alt="" className="korogu-img" />
         <div className="icon-container">
           <img src="./heart.png" alt="" className="heart-img" />
-          <ul onClick={() => setDropModal(!dropModal)}>
-            Drop items
+          <img
+            src="./treasure.png"
+            alt=""
+            className="heart-img"
+            onClick={() => setDropModal(!dropModal)}
+          />
+          <ul>
             {dropModal && modalInfo.drops?.map((drop) => <li>{drop}</li>)}
           </ul>
         </div>
