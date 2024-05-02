@@ -42,7 +42,7 @@ label {
 }
 
 .creatures-container {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background-color: rgb(17, 58, 58);
 }
@@ -199,7 +199,7 @@ label {
 .modal-info-container h4 {
   text-align: center;
 }
-.modal-info-container div {
+.modal-info-container .info-container {
   width: 90%;
   margin: 5%;
   display: flex;
@@ -207,7 +207,13 @@ label {
   align-items: center;
   justify-content: center;
 }
-.modal-info-container div p {
+.modal-info-container .info-container .korogu-img {
+  height: 120px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.modal-info-container .info-container p {
   width: 90%;
   margin: 10px;
   z-index: 2;
@@ -215,9 +221,24 @@ label {
   padding: 10px;
   border-radius: 8px;
 }
-.modal-info-container .korogu-img {
-  height: 120px;
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
+.modal-info-container .info-container img {
+  height: 250px;
+}
+.modal-info-container .info-container ul {
+  align-self: flex-end;
+  font-size: 18px;
+  padding: 10px;
+}
+.modal-info-container .info-container ul li {
+  background-color: white;
+}
+.modal-info-container .icon-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.modal-info-container .icon-container .heart-img {
+  height: 20px;
+  width: 20px;
 }/*# sourceMappingURL=index.css.map */
