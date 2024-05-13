@@ -55,22 +55,6 @@ label {
   height: 70px;
   background-color: rgb(6, 58, 58);
 }
-.creatures-container .monsters-list {
-  margin-top: 50px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-around;
-}
-.creatures-container input {
-  width: 90%;
-  margin-left: 5%;
-  margin-top: 5%;
-  height: 30px;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-}
 
 .header-container {
   position: fixed;
@@ -244,4 +228,22 @@ label {
   height: 20px;
   width: 20px;
   margin-left: 20px;
+}
+
+.list-container {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.searchbar-input {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 5%;
+  height: 30px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
 }/*# sourceMappingURL=index.css.map */

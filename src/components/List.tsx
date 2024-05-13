@@ -3,7 +3,7 @@ import ObjectCard from "./MonsterCard";
 
 const List = ({ objects, handleClick, search }) => {
   return (
-    <div className="monsters-list">
+    <div className="list-container">
       {objects
 
         ?.filter((object) => object.name?.includes(search))
