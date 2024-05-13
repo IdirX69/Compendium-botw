@@ -1,12 +1,22 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import MonsterCard from "../components/MonsterCard";
+import ModalInfo from "../components/ModalInfo";
+import SearchBar from "../components/SearchBar";
+import List from "../components/List";
 
 const Equipments = () => {
   const [equipments, setEquipments] = useState([]);
   const [search, setSearch] = useState("");
   const [modal, setModal] = useState(false);
   const [modalInfo, setModalInfo] = useState([]);
+
+  console.log(equipments);
+
+  const handleClick = (monster) => {
+    setModalInfo(monster);
+    setModal(true);
+  };
 
   useEffect(() => {
     axios
@@ -16,20 +26,11 @@ const Equipments = () => {
       .then((res) => setEquipments(res.data.data));
   }, [search]);
   return (
-    <div>
-      <div className="creatures-container">
-        <h2>Equipment</h2>
-        <input
-          type="text"
-          placeholder="Type to search"
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        <div className="monsters-list">
-          {equipments.map((object) => (
-            <MonsterCard monster={object} />
-          ))}
-        </div>
-      </div>
+    <div className="creatures-container">
+      <h2>Equipment</h2>
+      <SearchBar setSearch={setSearch} />
+      {modal && <ModalInfo modalInfo={modalInfo} setModal={setModal} />}
+      <List handleClick={handleClick} search={search} objects={equipments} />
     </div>
   );
 };

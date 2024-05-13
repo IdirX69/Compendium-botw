@@ -7,7 +7,7 @@ const List = ({ objects, handleClick, search }) => {
       {objects
         .filter((object) => object.name?.includes(search))
         .map((obj) => (
-          <div onClick={() => handleClick(obj)}>
+          <div onClick={() => handleClick(obj)} key={obj.id}>
             <ObjectCard obj={obj} />
           </div>
         ))}

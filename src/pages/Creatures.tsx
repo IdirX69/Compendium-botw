@@ -11,7 +11,6 @@ const Creatures = () => {
   const [search, setSearch] = useState("");
   const [modal, setModal] = useState(false);
   const [modalInfo, setModalInfo] = useState([]);
-  console.log(monsters);
 
   useEffect(() => {
     axios
