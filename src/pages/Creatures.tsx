@@ -3,6 +3,8 @@ import Header from "../components/Header";
 import axios from "axios";
 import MonsterCard from "../components/MonsterCard";
 import ModalInfo from "../components/ModalInfo";
+import List from "../components/List";
+import SearchBar from "../components/SearchBar";
 
 const Creatures = () => {
   const [monsters, setMonsters] = useState([]);
@@ -27,21 +29,9 @@ const Creatures = () => {
   return (
     <div className="creatures-container">
       <h2>Creatures</h2>
-      <input
-        type="text"
-        placeholder="Type to search"
-        onChange={(e) => setSearch(e.target.value)}
-      />
+      <SearchBar setSearch={setSearch} />
       {modal && <ModalInfo modalInfo={modalInfo} setModal={setModal} />}
-      <div className="monsters-list">
-        {monsters
-          .filter((monstr) => monstr.name.includes(search))
-          .map((monster) => (
-            <div onClick={() => handleClick(monster)}>
-              <MonsterCard monster={monster} />
-            </div>
-          ))}
-      </div>
+      <List handleClick={handleClick} search={search} objects={monsters} />
     </div>
   );
 };

@@ -1,14 +1,14 @@
 import React from "react";
 
-const Monster = ({ monster }) => {
+const ObjectCard = ({ obj }) => {
   return (
     <div className="monster-card-container">
       <div className="monster-card">
-        <img src={monster.image} alt="image" />
-        <span>{monster.name}</span>
+        <img src={obj.image} alt="image" />
+        <span>{obj.name}</span>
       </div>
     </div>
   );
 };
 
-export default Monster;
+export default ObjectCard;
