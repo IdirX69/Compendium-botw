@@ -13,8 +13,8 @@ const Equipments = () => {
 
   console.log(equipments);
 
-  const handleClick = (monster) => {
-    setModalInfo(monster);
+  const handleClick = (equpment) => {
+    setModalInfo(equpment);
     setModal(true);
   };
 

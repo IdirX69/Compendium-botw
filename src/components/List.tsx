@@ -5,8 +5,10 @@ const List = ({ objects, handleClick, search }) => {
   return (
     <div className="monsters-list">
       {objects
-        .filter((object) => object.name?.includes(search))
-        .map((obj) => (
+
+        ?.filter((object) => object.name?.includes(search))
+
+        ?.map((obj) => (
           <div onClick={() => handleClick(obj)} key={obj.id}>
             <ObjectCard obj={obj} />
           </div>
