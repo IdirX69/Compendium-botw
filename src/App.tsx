@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Header from "./components/Header";
 import Creatures from "./pages/Creatures";
 import Equipements from "./pages/Equipements";
+import Materials from "./pages/Materials";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/creatures" element={<Creatures />} />
         <Route path="/equipements" element={<Equipements />} />
+        <Route path="/materials" element={<Materials />} />
       </Routes>
     </Router>
   );
