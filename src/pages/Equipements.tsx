@@ -26,7 +26,7 @@ const Equipments = () => {
       .then((res) => setEquipments(res.data.data));
   }, [search]);
   return (
-    <div className="creatures-container">
+    <div className="page-container">
       <h2>Equipment</h2>
       <SearchBar setSearch={setSearch} />
       {modal && <ModalInfo modalInfo={modalInfo} setModal={setModal} />}

@@ -26,7 +26,7 @@ const Creatures = () => {
   };
 
   return (
-    <div className="creatures-container">
+    <div className="page-container">
       <h2>Creatures</h2>
       <SearchBar setSearch={setSearch} />
       {modal && <ModalInfo modalInfo={modalInfo} setModal={setModal} />}

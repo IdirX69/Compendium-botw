@@ -1,11 +1,14 @@
 .modal-info-container {
   z-index: 1;
-  min-height: 70%;
-  width: 90%;
+  min-height: 100%;
+  width: 100%;
   position: fixed;
+  overflow: hidden;
+  scroll-behavior: unset;
+  top: 0;
   background-color: #3e4d3a;
-  margin: 5%;
-  top: 15%;
+
+  border-radius: 10px;
   span {
     display: flex;
     width: 100%;
@@ -14,6 +17,7 @@
   }
   h4 {
     text-align: center;
+    font-size: 2rem;
   }
   .info-container {
     width: 90%;
