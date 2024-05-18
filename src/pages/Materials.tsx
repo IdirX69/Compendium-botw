@@ -8,7 +8,7 @@ const Materials = () => {
   const [materials, setMaterials] = useState([]);
   const [search, setSearch] = useState("");
   const [modal, setModal] = useState(false);
-  const [modalInfo, setModalInfo] = useState([]);
+  const [modalInfo, setModalInfo] = useState({});
 
   const handleClick = (material) => {
     setModalInfo(material);
@@ -16,12 +16,20 @@ const Materials = () => {
   };
 
   useEffect(() => {
-    axios
-      .get(
-        "https://botw-compendium.herokuapp.com/api/v3/compendium/category/materials"
-      )
-      .then((res) => setMaterials(res.data.data));
-  }, [search]);
+    const fetchMaterials = async () => {
+      try {
+        const res = await axios.get(
+          "https://botw-compendium.herokuapp.com/api/v3/compendium/category/materials"
+        );
+        setMaterials(res.data.data);
+      } catch (error) {
+        console.error("Error fetching materials:", error);
+      }
+    };
+
+    fetchMaterials();
+  }, []);
+
   return (
     <div className="page-container">
       <h2>Equipment</h2>
