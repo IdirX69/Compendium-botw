@@ -19,12 +19,19 @@ const Equipments = () => {
   };
 
   useEffect(() => {
-    axios
-      .get(
-        "https://botw-compendium.herokuapp.com/api/v3/compendium/category/equipment"
-      )
-      .then((res) => setEquipments(res.data.data));
-  }, [search]);
+    const fetchEquipments = async () => {
+      try {
+        const res = await axios.get(
+          "https://botw-compendium.herokuapp.com/api/v3/compendium/category/equipment"
+        );
+        setEquipments(res.data.data);
+      } catch (error) {
+        console.error("Error fetching Equipments:", error);
+      }
+    };
+
+    fetchEquipments();
+  }, []);
   return (
     <div className="page-container">
       <h2>Equipment</h2>
