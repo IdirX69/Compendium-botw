@@ -143,6 +143,7 @@ label {
 
 .monster-card-container {
   min-height: 180px;
+  width: 100%;
 }
 .monster-card-container .monster-card {
   width: 100%;
@@ -234,11 +235,15 @@ label {
 }
 
 .list-container {
+  width: 100%;
   margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-around;
+}
+.list-container .card-container {
+  display: flex;
+  align-items: center;
 }
 
 .searchbar-input {
