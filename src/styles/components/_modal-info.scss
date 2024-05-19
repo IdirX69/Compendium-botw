@@ -41,7 +41,21 @@
       border-radius: 8px;
     }
     img {
-      height: 250px;
+      height: 290px;
+    }
+  }
+  ul {
+    background-color: #3b3636;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    overflow: auto;
+    width: 50%;
+    text-align: center;
+    li {
+      text-align: left;
+      padding: 2px;
+      background-color: rgb(90, 125, 155);
     }
   }
   .icon-container {
@@ -50,16 +64,6 @@
     display: flex;
     justify-content: flex-end;
 
-    ul {
-      position: fixed;
-      z-index: 4;
-      font-size: 18px;
-      padding: 5px;
-      margin-top: 15px;
-      li {
-        background-color: rgb(17, 80, 38);
-      }
-    }
     .heart-img {
       height: 20px;
       width: 20px;

@@ -20,12 +20,17 @@ const ModalInfo = ({ modalInfo, setModal }) => {
               onClick={() => setDropModal(!dropModal)}
             />
           )}
-          <ul>
-            {dropModal && modalInfo.drops?.map((drop) => <li>{drop}</li>)}
-          </ul>
         </div>
         <p>{modalInfo.description}</p>
       </div>
+      {modalInfo.drops?.length > 0 && (
+        <ul>
+          Droppable items
+          {modalInfo.drops?.map((drop) => (
+            <li>{drop}</li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

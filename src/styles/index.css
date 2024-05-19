@@ -160,7 +160,7 @@ label {
 .monster-card-container span {
   height: 28px;
   align-self: center;
-  background-color: rgba(0, 0, 0, 0.849);
+  background-color: rgba(0, 0, 0, 0.281);
   width: 100%;
   position: relative;
   bottom: 28px;
@@ -210,23 +210,27 @@ label {
   border-radius: 8px;
 }
 .modal-info-container .info-container img {
-  height: 250px;
+  height: 290px;
+}
+.modal-info-container ul {
+  background-color: #3b3636;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  overflow: auto;
+  width: 50%;
+  text-align: center;
+}
+.modal-info-container ul li {
+  text-align: left;
+  padding: 2px;
+  background-color: rgb(90, 125, 155);
 }
 .modal-info-container .icon-container {
   min-width: 75%;
   margin: 5%;
   display: flex;
   justify-content: flex-end;
-}
-.modal-info-container .icon-container ul {
-  position: fixed;
-  z-index: 4;
-  font-size: 18px;
-  padding: 5px;
-  margin-top: 15px;
-}
-.modal-info-container .icon-container ul li {
-  background-color: rgb(17, 80, 38);
 }
 .modal-info-container .icon-container .heart-img {
   height: 20px;
@@ -240,6 +244,7 @@ label {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: space-around;
 }
 .list-container .card-container {
   display: flex;
