@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 const ModalInfo = ({ modalInfo, setModal }) => {
   const [dropModal, setDropModal] = useState(false);
+  console.log(modalInfo);
+
   return (
     <div className="modal-info-container">
       <span onClick={() => setModal(false)}>x</span>
@@ -23,14 +25,24 @@ const ModalInfo = ({ modalInfo, setModal }) => {
         </div>
         <p>{modalInfo.description}</p>
       </div>
-      {modalInfo.drops?.length > 0 && (
-        <ul>
-          Droppable items
-          {modalInfo.drops?.map((drop) => (
-            <li>{drop}</li>
-          ))}
-        </ul>
-      )}
+      <div className="more-information">
+        {modalInfo.drops?.length > 0 && (
+          <ul>
+            Droppable items
+            {modalInfo.drops?.map((drop) => (
+              <li>{drop}</li>
+            ))}
+          </ul>
+        )}
+        {modalInfo.common_locations?.length > 0 && (
+          <ul>
+            Locations
+            {modalInfo.common_locations?.map((location) => (
+              <li>{location}</li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 };

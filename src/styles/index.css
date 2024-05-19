@@ -212,16 +212,18 @@ label {
 .modal-info-container .info-container img {
   height: 290px;
 }
-.modal-info-container ul {
+.modal-info-container .more-information {
+  display: flex;
+}
+.modal-info-container .more-information ul {
   background-color: #3b3636;
   display: flex;
-  justify-content: space-evenly;
   flex-direction: column;
   overflow: auto;
   width: 50%;
   text-align: center;
 }
-.modal-info-container ul li {
+.modal-info-container .more-information ul li {
   text-align: left;
   padding: 2px;
   background-color: rgb(90, 125, 155);
