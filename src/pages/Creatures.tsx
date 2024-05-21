@@ -6,7 +6,7 @@ import List from "../components/List";
 import SearchBar from "../components/SearchBar";
 
 const Creatures = () => {
-  const [monsters, setMonsters] = useState([]);
+  const [creatures, setCreatures] = useState([]);
   const [search, setSearch] = useState("");
   const [modal, setModal] = useState(false);
   const [modalInfo, setModalInfo] = useState([]);
@@ -15,9 +15,9 @@ const Creatures = () => {
     const fetchMonsters = async () => {
       try {
         const res = await axios.get(
-          "https://botw-compendium.herokuapp.com/api/v3/compendium/category/monsters"
+          "https://botw-compendium.herokuapp.com/api/v3/compendium/category/creatures"
         );
-        setMonsters(res.data.data);
+        setCreatures(res.data.data);
       } catch (error) {
         console.error("Error fetching Monsters:", error);
       }
@@ -36,7 +36,7 @@ const Creatures = () => {
       <h2>Creatures</h2>
       <SearchBar setSearch={setSearch} />
       {modal && <ModalInfo modalInfo={modalInfo} setModal={setModal} />}
-      <List handleClick={handleClick} search={search} objects={monsters} />
+      <List handleClick={handleClick} search={search} objects={creatures} />
     </div>
   );
 };
