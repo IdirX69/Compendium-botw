@@ -215,15 +215,19 @@ label {
 .modal-info-container .more-information {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: flex-start;
+  text-align: center;
 }
-.modal-info-container .more-information .locations {
+.modal-info-container .more-information .locations,
+.modal-info-container .more-information .drops {
   display: flex;
   flex-direction: column;
   width: 50%;
 }
 .modal-info-container .more-information .locations ul,
-.modal-info-container .more-information .locations .properties {
+.modal-info-container .more-information .locations .properties,
+.modal-info-container .more-information .drops ul,
+.modal-info-container .more-information .drops .properties {
   background-color: #3b3636;
   display: flex;
   flex-direction: column;
@@ -231,7 +235,9 @@ label {
   text-align: center;
 }
 .modal-info-container .more-information .locations ul li,
-.modal-info-container .more-information .locations .properties li {
+.modal-info-container .more-information .locations .properties li,
+.modal-info-container .more-information .drops ul li,
+.modal-info-container .more-information .drops .properties li {
   text-align: left;
   padding: 2px;
   background-color: rgb(90, 125, 155);
