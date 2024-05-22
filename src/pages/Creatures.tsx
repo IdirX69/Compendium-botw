@@ -1,24 +1,30 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import axios from "axios";
-import MonsterCard from "../components/MonsterCard";
 import ModalInfo from "../components/ModalInfo";
 import List from "../components/List";
 import SearchBar from "../components/SearchBar";
 
 const Creatures = () => {
-  const [monsters, setMonsters] = useState([]);
+  const [creatures, setCreatures] = useState([]);
   const [search, setSearch] = useState("");
   const [modal, setModal] = useState(false);
   const [modalInfo, setModalInfo] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(
-        "https://botw-compendium.herokuapp.com/api/v3/compendium/category/monsters"
-      )
-      .then((res) => setMonsters(res.data.data));
-  }, [search]);
+    const fetchMonsters = async () => {
+      try {
+        const res = await axios.get(
+          "https://botw-compendium.herokuapp.com/api/v3/compendium/category/creatures"
+        );
+        setCreatures(res.data.data);
+      } catch (error) {
+        console.error("Error fetching Monsters:", error);
+      }
+    };
+
+    fetchMonsters();
+  }, []);
 
   const handleClick = (monster) => {
     setModalInfo(monster);
@@ -30,7 +36,7 @@ const Creatures = () => {
       <h2>Creatures</h2>
       <SearchBar setSearch={setSearch} />
       {modal && <ModalInfo modalInfo={modalInfo} setModal={setModal} />}
-      <List handleClick={handleClick} search={search} objects={monsters} />
+      <List handleClick={handleClick} search={search} objects={creatures} />
     </div>
   );
 };

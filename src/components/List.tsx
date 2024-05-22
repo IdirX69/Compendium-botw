@@ -9,7 +9,11 @@ const List = ({ objects, handleClick, search }) => {
         ?.filter((object) => object.name?.includes(search))
 
         ?.map((obj) => (
-          <div onClick={() => handleClick(obj)} key={obj.id}>
+          <div
+            className="card-container"
+            onClick={() => handleClick(obj)}
+            key={obj.id}
+          >
             <ObjectCard obj={obj} />
           </div>
         ))}
