@@ -16,11 +16,11 @@ const ModalInfo = ({ modalInfo, setModal }) => {
       case "monsters":
         return (
           <>
-            {modalInfo.drops && (
+            {modalInfo?.drops.length > 0 && (
               <div className="drops">
                 <h5>Droppable items</h5>
                 <ul>
-                  {modalInfo.drops.map((drop, index) => (
+                  {modalInfo.drops?.map((drop, index) => (
                     <li key={index}>{drop}</li>
                   ))}
                 </ul>
@@ -31,14 +31,15 @@ const ModalInfo = ({ modalInfo, setModal }) => {
       case "materials":
         return (
           <div className="materials-info">
-            <p>Category: {modalInfo.category}</p>
-
-            {modalInfo.cooking_effect && (
-              <p>Effect: {modalInfo.cooking_effect}</p>
-            )}
-            {modalInfo.hearts_recovered && (
-              <p>Hearts recovered: {modalInfo.hearts_recovered}</p>
-            )}
+            <h5>Category: {modalInfo.category}</h5>
+            <ul>
+              {modalInfo.cooking_effect && (
+                <li>Effect: {modalInfo.cooking_effect}</li>
+              )}
+              {modalInfo.hearts_recovered && (
+                <li>Hearts recovered: {modalInfo.hearts_recovered}</li>
+              )}
+            </ul>
           </div>
         );
       case "creatures":
