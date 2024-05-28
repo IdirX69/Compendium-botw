@@ -33,7 +33,6 @@ const Creatures = () => {
 
   return (
     <div className="page-container">
-      <h2>Creatures</h2>
       <SearchBar setSearch={setSearch} />
       {modal && <ModalInfo modalInfo={modalInfo} setModal={setModal} />}
       <List handleClick={handleClick} search={search} objects={creatures} />
