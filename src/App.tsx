@@ -10,14 +10,13 @@ import Treasure from "./pages/Treasure";
 function App() {
   return (
     <Router>
-      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/creatures" element={<Creatures />} />
-        <Route path="/equipements" element={<Equipements />} />
-        <Route path="/materials" element={<Materials />} />
-        <Route path="/monsters" element={<Monsters />} />
-        <Route path="/treasure" element={<Treasure />} />
+        <Route path="/creatures" element={<Home element={"creatures"} />} />
+        <Route path="/equipements" element={<Home element={"equipment"} />} />
+        <Route path="/materials" element={<Home element={"materials"} />} />
+        <Route path="/monsters" element={<Home element={"monsters"} />} />
+        <Route path="/treasure" element={<Home element={"treasure"} />} />
       </Routes>
     </Router>
   );

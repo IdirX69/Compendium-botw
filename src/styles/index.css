@@ -58,19 +58,28 @@ label {
 
 .header-container {
   width: 100%;
+  height: 70px;
 }
-.header-container ul {
+.header-container div {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   background-color: #1a1414;
+  margin-top: 10px;
 }
-.header-container ul img {
+.header-container div img {
+  align-self: center;
   height: 50px;
+  filter: blur(0px);
+  z-index: 10;
 }
-.header-container ul a:active {
-  background-color: red;
+.header-container div a {
+  padding: 7px;
+  height: 65px;
+}
+.header-container div .active {
+  background-color: rgba(6, 137, 203, 0.8156862745);
 }
 
 .monster-card-container {

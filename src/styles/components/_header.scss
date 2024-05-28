@@ -1,16 +1,25 @@
 .header-container {
   width: 100%;
-  ul {
+  height: 70px;
+  div {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     background-color: $color1;
+    margin-top: 10px;
     img {
+      align-self: center;
       height: 50px;
+      filter: blur(0px);
+      z-index: 10;
     }
-    a:active {
-      background-color: red;
+    a {
+      padding: 7px;
+      height: 65px;
+    }
+    .active {
+      background-color: #0689cbd0;
     }
   }
 }
