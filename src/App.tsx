@@ -5,6 +5,7 @@ import Creatures from "./pages/Creatures";
 import Equipements from "./pages/Equipements";
 import Materials from "./pages/Materials";
 import Monsters from "./pages/Monsters";
+import Treasure from "./pages/Treasure";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/equipements" element={<Equipements />} />
         <Route path="/materials" element={<Materials />} />
         <Route path="/monsters" element={<Monsters />} />
+        <Route path="/treasure" element={<Treasure />} />
       </Routes>
     </Router>
   );
