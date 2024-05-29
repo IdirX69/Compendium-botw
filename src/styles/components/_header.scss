@@ -1,25 +1,23 @@
 .header-container {
   width: 100%;
   height: 70px;
+  margin-top: 30px;
   div {
-    width: 100%;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     background-color: $color1;
-    margin-top: 10px;
+
     img {
-      align-self: center;
       height: 50px;
-      filter: blur(0px);
-      z-index: 10;
     }
     a {
-      padding: 7px;
-      height: 65px;
+      margin: auto;
     }
+
     .active {
-      background-color: #0689cbd0;
+      border: 10px solid rgba(109, 177, 216, 0.473);
     }
   }
 }

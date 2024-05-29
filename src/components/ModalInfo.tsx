@@ -4,14 +4,36 @@ const ModalInfo = ({ modalInfo, setModal }) => {
   const [dropModal, setDropModal] = useState(false);
   console.log(modalInfo);
 
+  const renderHearts = (recovery) => {
+    const hearts = [];
+    for (let i = 0; i < recovery; i++) {
+      hearts.push(
+        <img
+          key={i}
+          src="./heart.png"
+          alt="heart"
+          style={{ width: "20px", height: "20px" }}
+        />
+      );
+    }
+    return hearts;
+  };
+
   const renderCategorySpecificInfo = () => {
     switch (modalInfo.category) {
       case "equipment":
         return (
-          <ul className="properties">
-            <li>Attack: {modalInfo.properties.attack}</li>
-            <li>Defense: {modalInfo.properties.defense}</li>
-          </ul>
+          <>
+            {modalInfo?.properties && (
+              <div className="properties">
+                <h5>Properties</h5>
+                <ul>
+                  <li>Attack: {modalInfo.properties.attack}</li>
+                  <li>Defense: {modalInfo.properties.defense}</li>
+                </ul>
+              </div>
+            )}
+          </>
         );
       case "monsters":
         return (
@@ -45,7 +67,11 @@ const ModalInfo = ({ modalInfo, setModal }) => {
       case "creatures":
         return (
           <>
-            {modalInfo.edible && <p>This creature is edible.</p>}
+            {modalInfo.edible && (
+              <div className="edible">
+                <p>This creature is edible.</p>
+              </div>
+            )}
             {modalInfo.drops && (
               <div className="drops">
                 <h5>Droppable items</h5>
@@ -76,18 +102,11 @@ const ModalInfo = ({ modalInfo, setModal }) => {
       <h4>{modalInfo.name}</h4>
       <div className="info-container">
         <img src={modalInfo.image} alt="image" />
-        <img src="./korogu.png" alt="" className="korogu-img" />
-        <div className="icon-container">
-          <img src="./heart.png" alt="" className="heart-img" />
-          {modalInfo.drops && (
-            <img
-              src="./treasure.png"
-              alt=""
-              className="heart-img"
-              onClick={() => setDropModal(!dropModal)}
-            />
-          )}
+        <div className="hearts-recovered">
+          {modalInfo.hearts_recovered &&
+            renderHearts(modalInfo.hearts_recovered)}
         </div>
+        <img src="./korogu.png" alt="" className="korogu-img" />
         <p>{modalInfo.description}</p>
       </div>
       <div className="more-information">
