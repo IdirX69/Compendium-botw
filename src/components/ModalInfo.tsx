@@ -6,16 +6,31 @@ const ModalInfo = ({ modalInfo, setModal }) => {
 
   const renderHearts = (recovery) => {
     const hearts = [];
-    for (let i = 0; i < recovery; i++) {
+    const fullHearts = Math.floor(recovery);
+    const hasHalfHeart = recovery % 1 !== 0;
+
+    for (let i = 0; i < fullHearts; i++) {
       hearts.push(
         <img
-          key={i}
+          key={`full-${i}`}
           src="./heart.png"
           alt="heart"
-          style={{ width: "20px", height: "20px" }}
+          style={{ width: "25px", height: "25px" }}
         />
       );
     }
+
+    if (hasHalfHeart) {
+      hearts.push(
+        <img
+          key="half"
+          src="half-heart.png"
+          alt="half heart"
+          style={{ width: "25px", height: "25px" }}
+        />
+      );
+    }
+
     return hearts;
   };
 
@@ -38,7 +53,7 @@ const ModalInfo = ({ modalInfo, setModal }) => {
       case "monsters":
         return (
           <>
-            {modalInfo?.drops.length > 0 && (
+            {modalInfo?.drops?.length > 0 && (
               <div className="drops">
                 <h5>Droppable items</h5>
                 <ul>
@@ -72,7 +87,7 @@ const ModalInfo = ({ modalInfo, setModal }) => {
                 <p>This creature is edible.</p>
               </div>
             )}
-            {modalInfo.drops && (
+            {modalInfo.drops?.length > 0 && (
               <div className="drops">
                 <h5>Droppable items</h5>
                 <ul>
@@ -103,11 +118,11 @@ const ModalInfo = ({ modalInfo, setModal }) => {
       <div className="info-container">
         <img src={modalInfo.image} alt="image" />
         <div className="hearts-recovered">
-          {modalInfo.hearts_recovered &&
+          {modalInfo.hearts_recovered > 0 &&
             renderHearts(modalInfo.hearts_recovered)}
         </div>
-        <img src="./korogu.png" alt="" className="korogu-img" />
         <p>{modalInfo.description}</p>
+        <img src="./korogu.png" alt="" className="korogu-img" />
       </div>
       <div className="more-information">
         {renderCategorySpecificInfo()}

@@ -3,8 +3,6 @@
   min-height: 100%;
   width: 100%;
   position: fixed;
-  overflow: hidden;
-  scroll-behavior: unset;
   top: 0;
   background-color: $color1;
 
@@ -34,10 +32,10 @@
       width: 80%;
     }
     .korogu-img {
-      height: 120px;
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
+      height: 80px;
+      position: relative;
+      top: 10px;
+      left: 10px;
     }
     p {
       width: 90%;
@@ -61,22 +59,28 @@
     .drops,
     .properties,
     .materials-info {
-      height: 100%;
       display: flex;
       flex-direction: column;
-      width: 50%;
+      width: 100%;
       ul {
         background-color: #3b3636;
         display: flex;
         flex-direction: column;
-        overflow: auto;
         text-align: center;
+        overflow: scroll;
         li {
+          display: flex;
+          justify-content: space-evenly;
           text-align: left;
           padding: 2px;
-          background-color: rgb(90, 125, 155);
+          background-color: rgba(36, 75, 109, 0.062);
         }
       }
+    }
+    h5 {
+      background-color: rgba(23, 82, 23, 0.658);
+      padding: 2px;
+      font-size: large;
     }
     .edible {
       margin: 2rem;
