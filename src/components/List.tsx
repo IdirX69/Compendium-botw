@@ -11,7 +11,7 @@ const List = ({ objects, handleClick, search }) => {
         ?.map((obj) => (
           <div
             className="card-container"
-            onClick={() => handleClick(obj)}
+            onClick={() => handleClick(obj.id)}
             key={obj.id}
           >
             <ObjectCard obj={obj} />

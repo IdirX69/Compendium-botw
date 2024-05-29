@@ -4,16 +4,15 @@ import SearchBar from "../components/SearchBar";
 import ModalInfo from "../components/ModalInfo";
 import List from "../components/List";
 import Header from "../components/Header";
+import { useNavigate } from "react-router-dom";
 
 const Home = ({ element }) => {
   const [materials, setMaterials] = useState([]);
   const [search, setSearch] = useState("");
-  const [modal, setModal] = useState(false);
-  const [modalInfo, setModalInfo] = useState({});
+  const navigate = useNavigate();
 
-  const handleClick = (material) => {
-    setModalInfo(material);
-    setModal(true);
+  const handleClick = (id) => {
+    navigate(`/${element}/${id}`);
   };
 
   useEffect(() => {
@@ -35,7 +34,6 @@ const Home = ({ element }) => {
     <div className="page-container">
       <SearchBar setSearch={setSearch} />
       <Header />
-      {modal && <ModalInfo modalInfo={modalInfo} setModal={setModal} />}
       <List handleClick={handleClick} search={search} objects={materials} />
     </div>
   );

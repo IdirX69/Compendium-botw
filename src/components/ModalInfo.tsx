@@ -1,10 +1,33 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import Loading from "./Loading";
+import { Data } from "../types/types";
+const ModalInfo = ({ category }: { category: string }) => {
+  const [data, setData] = useState<Data>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const { id } = useParams();
 
-const ModalInfo = ({ modalInfo, setModal }) => {
-  const [dropModal, setDropModal] = useState(false);
-  console.log(modalInfo);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(
+          `https://botw-compendium.herokuapp.com/api/v3/compendium/entry/${id}`
+        );
+        setData(res.data.data);
+        setLoading(false);
+      } catch (err) {
+        setError("Erreur lors de la récupération des données.");
+        setLoading(false);
+      }
+    };
 
-  const renderHearts = (recovery) => {
+    fetchData();
+  }, [category, id]);
+
+  const renderHearts = (recovery: number) => {
     const hearts = [];
     const fullHearts = Math.floor(recovery);
     const hasHalfHeart = recovery % 1 !== 0;
@@ -24,7 +47,7 @@ const ModalInfo = ({ modalInfo, setModal }) => {
       hearts.push(
         <img
           key="half"
-          src="half-heart.png"
+          src="./half-heart.png"
           alt="half heart"
           style={{ width: "25px", height: "25px" }}
         />
@@ -35,16 +58,20 @@ const ModalInfo = ({ modalInfo, setModal }) => {
   };
 
   const renderCategorySpecificInfo = () => {
-    switch (modalInfo.category) {
+    if (!data) return null;
+
+    const { drops } = data;
+
+    switch (data.category) {
       case "equipment":
         return (
           <>
-            {modalInfo?.properties && (
+            {data?.properties && (
               <div className="properties">
                 <h5>Properties</h5>
                 <ul>
-                  <li>Attack: {modalInfo.properties.attack}</li>
-                  <li>Defense: {modalInfo.properties.defense}</li>
+                  <li>Attack: {data.properties.attack}</li>
+                  <li>Defense: {data.properties.defense}</li>
                 </ul>
               </div>
             )}
@@ -53,11 +80,11 @@ const ModalInfo = ({ modalInfo, setModal }) => {
       case "monsters":
         return (
           <>
-            {modalInfo?.drops?.length > 0 && (
+            {drops && drops?.length > 0 && (
               <div className="drops">
                 <h5>Droppable items</h5>
                 <ul>
-                  {modalInfo.drops?.map((drop, index) => (
+                  {data.drops?.map((drop, index) => (
                     <li key={index}>{drop}</li>
                   ))}
                 </ul>
@@ -68,13 +95,11 @@ const ModalInfo = ({ modalInfo, setModal }) => {
       case "materials":
         return (
           <div className="materials-info">
-            <h5>Category: {modalInfo.category}</h5>
+            <h5>Category: {data.category}</h5>
             <ul>
-              {modalInfo.cooking_effect && (
-                <li>Effect: {modalInfo.cooking_effect}</li>
-              )}
-              {modalInfo.hearts_recovered && (
-                <li>Hearts recovered: {modalInfo.hearts_recovered}</li>
+              {data.cooking_effect && <li>Effect: {data.cooking_effect}</li>}
+              {data.hearts_recovered && (
+                <li>Hearts recovered: {data.hearts_recovered}</li>
               )}
             </ul>
           </div>
@@ -82,16 +107,16 @@ const ModalInfo = ({ modalInfo, setModal }) => {
       case "creatures":
         return (
           <>
-            {modalInfo.edible && (
+            {data.edible && (
               <div className="edible">
                 <p>This creature is edible.</p>
               </div>
             )}
-            {modalInfo.drops?.length > 0 && (
+            {drops && drops?.length > 0 && (
               <div className="drops">
                 <h5>Droppable items</h5>
                 <ul>
-                  {modalInfo.drops.map((drop, index) => (
+                  {drops.map((drop, index) => (
                     <li key={index}>{drop}</li>
                   ))}
                 </ul>
@@ -102,35 +127,37 @@ const ModalInfo = ({ modalInfo, setModal }) => {
       case "treasures":
         return (
           <div className="treasures-info">
-            <p>Category: {modalInfo.category}</p>
-            {modalInfo.value && <p>Value: {modalInfo.value} rupees</p>}
+            <p>Category: {data.category}</p>
+            {data.value && <p>Value: {data.value} rupees</p>}
           </div>
         );
       default:
         return <p>No additional information available.</p>;
     }
   };
-
+  if (loading) return <Loading />;
+  if (error) return <div>{error}</div>;
   return (
     <div className="modal-info-container">
-      <span onClick={() => setModal(false)}>x</span>
-      <h4>{modalInfo.name}</h4>
+      <span onClick={() => navigate(-1)}>x</span>
+      <h4>{data && data.name}</h4>
       <div className="info-container">
-        <img src={modalInfo.image} alt="image" />
+        <img src={data && data.image} alt="image" />
         <div className="hearts-recovered">
-          {modalInfo.hearts_recovered > 0 &&
-            renderHearts(modalInfo.hearts_recovered)}
+          {data &&
+            data.hearts_recovered > 0 &&
+            renderHearts(data.hearts_recovered)}
         </div>
-        <p>{modalInfo.description}</p>
+        <p>{data.description}</p>
         <img src="./korogu.png" alt="" className="korogu-img" />
       </div>
       <div className="more-information">
         {renderCategorySpecificInfo()}
-        {modalInfo.common_locations && (
+        {data.common_locations && (
           <div className="locations">
             <h5>Locations</h5>
             <ul>
-              {modalInfo.common_locations.map((location, index) => (
+              {data.common_locations.map((location, index) => (
                 <li key={index}>{location}</li>
               ))}
             </ul>
