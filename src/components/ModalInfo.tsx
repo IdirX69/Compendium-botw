@@ -139,7 +139,9 @@ const ModalInfo = ({ category }: { category: string }) => {
   if (error) return <div>{error}</div>;
   return (
     <div className="modal-info-container">
-      <span onClick={() => navigate(-1)}>x</span>
+      <span onClick={() => navigate(-1)}>
+        <img src="./../../public/back-button.png" alt="" />
+      </span>
       <h4>{data && data.name}</h4>
       <div className="info-container">
         <img src={data && data.image} alt="image" />
@@ -148,9 +150,9 @@ const ModalInfo = ({ category }: { category: string }) => {
             {renderHearts(data.hearts_recovered)}
           </div>
         )}
+        <img src="./../../public/korogu.png" alt="" className="korogu-img" />
         <p>{data.description}</p>
       </div>
-      <img src="./korogu.png" alt="" className="korogu-img" />
       <div className="more-information">
         {renderCategorySpecificInfo()}
         {data.common_locations && (
