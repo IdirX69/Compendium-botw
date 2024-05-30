@@ -143,14 +143,14 @@ const ModalInfo = ({ category }: { category: string }) => {
       <h4>{data && data.name}</h4>
       <div className="info-container">
         <img src={data && data.image} alt="image" />
-        <div className="hearts-recovered">
-          {data &&
-            data.hearts_recovered > 0 &&
-            renderHearts(data.hearts_recovered)}
-        </div>
+        {data && data.hearts_recovered > 0 && (
+          <div className="hearts-recovered">
+            {renderHearts(data.hearts_recovered)}
+          </div>
+        )}
         <p>{data.description}</p>
-        <img src="./korogu.png" alt="" className="korogu-img" />
       </div>
+      <img src="./korogu.png" alt="" className="korogu-img" />
       <div className="more-information">
         {renderCategorySpecificInfo()}
         {data.common_locations && (
