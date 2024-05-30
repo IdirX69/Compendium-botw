@@ -87,28 +87,31 @@ label {
 }
 
 .monster-card-container {
-  min-height: 180px;
   width: 100%;
 }
 .monster-card-container .monster-card {
-  width: 100%;
-  height: 100%;
   display: flex;
-  flex-direction: column;
+  margin: 1rem;
   color: white;
   font-size: large;
-  text-align: center;
+  justify-content: flex-start;
 }
 .monster-card-container .monster-card img {
-  height: 175px;
+  height: 105px;
+  border-radius: 10px;
 }
-.monster-card-container span {
-  height: 28px;
-  align-self: center;
-  background-color: rgba(0, 0, 0, 0.281);
-  width: 100%;
-  position: relative;
-  bottom: 28px;
+.monster-card-container .info-object {
+  display: flex;
+  flex-direction: column;
+  font-family: "Saira Condensed", sans-serif;
+  font-size: larger;
+  padding-left: 2rem;
+}
+.monster-card-container .info-object span {
+  text-transform: capitalize;
+}
+.monster-card-container .info-object span:nth-child(2) {
+  color: rgb(107, 181, 250);
 }
 
 .modal-info-container {
@@ -204,12 +207,9 @@ label {
   margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-around;
 }
 .list-container .card-container {
-  display: flex;
-  align-items: center;
+  width: 100%;
 }
 
 .searchbar-input {

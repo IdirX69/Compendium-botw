@@ -1,24 +1,27 @@
 .monster-card-container {
-  min-height: 180px;
   width: 100%;
   .monster-card {
-    width: 100%;
-    height: 100%;
     display: flex;
-    flex-direction: column;
+    margin: 1rem;
     color: white;
     font-size: large;
-    text-align: center;
+    justify-content: flex-start;
     img {
-      height: 175px;
+      height: 105px;
+      border-radius: 10px;
     }
   }
-  span {
-    height: 28px;
-    align-self: center;
-    background-color: rgba(0, 0, 0, 0.281);
-    width: 100%;
-    position: relative;
-    bottom: 28px;
+  .info-object {
+    display: flex;
+    flex-direction: column;
+    font-family: $font1;
+    font-size: larger;
+    padding-left: 2rem;
+    span {
+      text-transform: capitalize;
+    }
+    span:nth-child(2) {
+      color: rgb(107, 181, 250);
+    }
   }
 }

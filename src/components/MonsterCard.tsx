@@ -5,7 +5,10 @@ const ObjectCard = ({ obj }) => {
     <div className="monster-card-container">
       <div className="monster-card">
         <img src={obj.image} alt="image" />
-        <span>{obj.name}</span>
+        <div className="info-object">
+          <span>{obj.name}</span>
+          <span className="span-id">{obj.id}</span>
+        </div>
       </div>
     </div>
   );

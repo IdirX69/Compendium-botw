@@ -4,6 +4,7 @@ export interface EquipmentProperties {
 }
 
 export interface Data {
+  id: number;
   name: string;
   category: string;
   image: string;
