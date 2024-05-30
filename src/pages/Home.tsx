@@ -18,8 +18,8 @@ const Home = ({ element }: { element: string }) => {
 
   return (
     <div className="page-container">
-      <SearchBar setSearch={setSearch} />
       <Header />
+      <SearchBar setSearch={setSearch} />
       <List handleClick={handleClick} search={search} element={element} />
     </div>
   );

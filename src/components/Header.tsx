@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 const Header = () => {
   return (
     <div className="header-container">
+      <img src="./logo.png" alt="" />
       <div>
         <NavLink to="/creatures">
           <img src="./Creatures.png" alt="" />
