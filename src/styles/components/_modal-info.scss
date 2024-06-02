@@ -1,85 +1,96 @@
 .modal-info-container {
-  z-index: 1;
-  min-height: 100%;
-  width: 100%;
+  min-width: 100%;
+  height: 100%;
   position: fixed;
-  overflow: hidden;
-  scroll-behavior: unset;
-  top: 0;
-  background-color: #3e4d3a;
+  background-color: $color1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 
-  border-radius: 10px;
   span {
-    display: flex;
     width: 100%;
-    justify-content: flex-end;
-    padding: 10px;
+    img {
+      margin: 10px;
+      height: 40px;
+    }
   }
   h4 {
     text-align: center;
     font-size: 2rem;
   }
+  .korogu-img {
+    height: 70px;
+    width: 70px !important;
+    position: relative;
+    right: 10px;
+    top: 10px;
+  }
   .info-container {
-    width: 90%;
-    margin: 5%;
+    width: 85%;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
-    justify-content: center;
-    .korogu-img {
-      height: 120px;
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
+
+    .hearts-recovered {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      width: 80%;
     }
     p {
-      width: 90%;
-      margin: 10px;
+      margin: 2rem;
+      width: 100%;
       z-index: 2;
-      background-color: rgba(3, 3, 3, 0.466);
+      background-color: rgba(255, 255, 255, 0.13);
       padding: 10px;
       border-radius: 8px;
     }
     img {
-      height: 290px;
+      width: 100%;
+      border-radius: 10px;
     }
   }
   .more-information {
     display: flex;
-    width: 100%;
-    justify-content: flex-start;
+    width: 98%;
+    margin: 1%;
+    overflow: hidden;
+    justify-content: flex-end;
     text-align: center;
+    background-color: hwb(187 2% 2% / 0.137);
     .locations,
     .drops,
-    .materials-info {
+    .properties,
+    .materials-info,
+    .treasures-info {
       display: flex;
       flex-direction: column;
-      width: 50%;
-      ul,
-      .properties {
-        background-color: #3b3636;
+      width: 100%;
+      margin: 2px;
+
+      ul {
+        overflow: scroll;
         display: flex;
         flex-direction: column;
-        overflow: auto;
         text-align: center;
         li {
+          display: flex;
+          justify-content: space-evenly;
           text-align: left;
           padding: 2px;
-          background-color: rgb(90, 125, 155);
         }
       }
     }
-  }
-  .icon-container {
-    min-width: 75%;
-    margin: 5%;
-    display: flex;
-    justify-content: flex-end;
-
-    .heart-img {
-      height: 20px;
-      width: 20px;
-      margin-left: 20px;
+    h5 {
+      background-color: rgba(23, 82, 23, 0.658);
+      padding: 2px;
+      font-size: large;
+    }
+    .edible {
+      margin: 2rem;
     }
   }
 }

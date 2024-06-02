@@ -1,9 +1,20 @@
-.searchbar-input {
-  width: 90%;
-  margin-left: 5%;
-  margin-top: 5%;
-  height: 30px;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
+.searchbar-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  .searchbar-input {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
+    height: 30px;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    @media screen and (min-width: 1200px) {
+      width: 50%;
+      margin-left: 1rem;
+      align-self: center;
+    }
+  }
 }

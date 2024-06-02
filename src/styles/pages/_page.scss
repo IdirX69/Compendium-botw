@@ -1,7 +1,12 @@
 .page-container {
   min-height: 100vh;
   width: 100%;
-  background-color: rgb(17, 58, 58);
+  background-color: $color1;
+  @media screen and (min-width: 1200px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   h2 {
     display: flex;
     justify-content: center;
@@ -9,6 +14,6 @@
     text-align: center;
     width: 100%;
     height: 70px;
-    background-color: rgb(6, 58, 58);
+    background-color: $color1;
   }
 }

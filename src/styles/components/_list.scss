@@ -3,10 +3,22 @@
   margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-around;
+  @media screen and (min-width: 1200px) {
+    width: 80%;
+    .card-container:hover {
+      border: 1px solid $blue1;
+      border-radius: 10px;
+      background-color: rgba(212, 216, 216, 0.089);
+    }
+  }
+
   .card-container {
-    display: flex;
-    align-items: center;
+    width: 100%;
+    @media screen and (min-width: 1200px) {
+      width: 50%;
+      height: 150px;
+      display: flex;
+      align-items: center;
+    }
   }
 }
