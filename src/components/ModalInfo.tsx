@@ -3,18 +3,21 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Loading from "./Loading";
 import { Data } from "../types/types";
-const ModalInfo = ({ category }: { category: string }) => {
+const ModalInfo = ({ id, category }) => {
   const [data, setData] = useState<Data>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const { id } = useParams();
+  const { paramId } = useParams();
+  console.log(id);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          `https://botw-compendium.herokuapp.com/api/v3/compendium/entry/${id}`
+          `https://botw-compendium.herokuapp.com/api/v3/compendium/entry/${
+            id ? id : paramId
+          }`
         );
         setData(res.data.data);
         setLoading(false);
@@ -25,7 +28,7 @@ const ModalInfo = ({ category }: { category: string }) => {
     };
 
     fetchData();
-  }, [category, id]);
+  }, [category, id, paramId]);
 
   const renderHearts = (recovery: number) => {
     const hearts = [];

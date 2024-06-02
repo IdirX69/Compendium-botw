@@ -52,6 +52,15 @@ label {
   justify-content: center;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  text-transform: capitalize;
+}
+
 .page-container {
   min-height: 100vh;
   width: 100%;
@@ -82,7 +91,7 @@ label {
 }
 @media screen and (min-width: 1200px) {
   .header-container {
-    width: 80%;
+    width: 70%;
   }
 }
 .header-container img {
@@ -113,6 +122,11 @@ label {
 .header-container div img {
   margin: 0;
   height: 40px;
+}
+@media screen and (min-width: 1200px) {
+  .header-container div img {
+    height: 50px;
+  }
 }
 
 .monster-card-container {
@@ -147,7 +161,7 @@ label {
 }
 
 .modal-info-container {
-  min-width: 100%;
+  width: 100%;
   height: 100%;
   position: fixed;
   background-color: #1a1414;
@@ -156,8 +170,22 @@ label {
   align-items: center;
   justify-content: space-evenly;
 }
+@media screen and (min-width: 1200px) {
+  .modal-info-container {
+    position: f;
+    width: 40%;
+    height: 90%;
+    background-color: rgb(29, 29, 41);
+    margin: 5% 10%;
+  }
+}
 .modal-info-container span {
   width: 100%;
+}
+@media screen and (min-width: 1200px) {
+  .modal-info-container span {
+    display: none;
+  }
 }
 .modal-info-container span img {
   margin: 10px;
@@ -181,6 +209,11 @@ label {
   justify-content: space-evenly;
   align-items: center;
 }
+@media screen and (min-width: 1200px) {
+  .modal-info-container .info-container {
+    width: 70%;
+  }
+}
 .modal-info-container .info-container .hearts-recovered {
   display: flex;
   align-items: center;
@@ -200,6 +233,12 @@ label {
   width: 100%;
   border-radius: 10px;
 }
+@media screen and (min-width: 1200px) {
+  .modal-info-container .info-container img {
+    height: 270px;
+    width: 250px;
+  }
+}
 .modal-info-container .more-information {
   display: flex;
   width: 98%;
@@ -208,6 +247,11 @@ label {
   justify-content: flex-end;
   text-align: center;
   background-color: hwb(187 2% 2%/0.137);
+}
+@media screen and (min-width: 1200px) {
+  .modal-info-container .more-information {
+    width: 100%;
+  }
 }
 .modal-info-container .more-information .locations,
 .modal-info-container .more-information .drops,
@@ -247,6 +291,21 @@ label {
 .modal-info-container .more-information .edible {
   margin: 2rem;
 }
+.modal-info-container ::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+.modal-info-container ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+.modal-info-container ::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+.modal-info-container ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 
 .list-container {
   width: 100%;
@@ -256,10 +315,15 @@ label {
 }
 @media screen and (min-width: 1200px) {
   .list-container {
-    width: 80%;
+    width: 70%;
+    border-radius: 10px;
+    background-color: rgb(24, 27, 37);
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 0;
   }
   .list-container .card-container:hover {
-    border: 1px solid #03496f;
+    border: 1px 0px solid #03496f;
     border-radius: 10px;
     background-color: rgba(212, 216, 216, 0.089);
   }
@@ -269,10 +333,11 @@ label {
 }
 @media screen and (min-width: 1200px) {
   .list-container .card-container {
-    width: 50%;
+    width: 30%;
     height: 150px;
     display: flex;
     align-items: center;
+    margin: 10px;
   }
 }
 
@@ -281,6 +346,11 @@ label {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+}
+@media screen and (min-width: 1200px) {
+  .searchbar-container {
+    width: 70%;
+  }
 }
 .searchbar-container .searchbar-input {
   width: 90%;
@@ -293,8 +363,8 @@ label {
 }
 @media screen and (min-width: 1200px) {
   .searchbar-container .searchbar-input {
-    width: 50%;
+    width: 30%;
     margin-left: 1rem;
-    align-self: center;
+    align-self: flex-end;
   }
 }/*# sourceMappingURL=index.css.map */
