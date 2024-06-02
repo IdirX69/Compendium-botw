@@ -129,7 +129,7 @@ const ModalInfo = ({ category }: { category: string }) => {
           </div>
         );
       default:
-        return <p>No additional information available.</p>;
+        return null;
     }
   };
   if (loading) return <Loading />;

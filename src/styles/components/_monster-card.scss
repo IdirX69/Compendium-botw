@@ -1,11 +1,13 @@
 .monster-card-container {
   width: 100%;
+
   .monster-card {
     display: flex;
     margin: 1rem;
     color: white;
     font-size: large;
     justify-content: flex-start;
+
     img {
       height: 105px;
       border-radius: 10px;

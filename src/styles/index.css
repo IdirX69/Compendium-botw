@@ -57,6 +57,13 @@ label {
   width: 100%;
   background-color: #1a1414;
 }
+@media screen and (min-width: 1200px) {
+  .page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .page-container h2 {
   display: flex;
   justify-content: center;
@@ -73,6 +80,11 @@ label {
   flex-direction: column;
   align-items: center;
 }
+@media screen and (min-width: 1200px) {
+  .header-container {
+    width: 80%;
+  }
+}
 .header-container img {
   margin-top: 10px;
   height: 120px;
@@ -84,6 +96,11 @@ label {
   justify-content: center;
   align-items: center;
   background-color: #1a1414;
+}
+@media screen and (min-width: 1200px) {
+  .header-container div {
+    width: 60%;
+  }
 }
 .header-container div a {
   height: 41px;
@@ -195,7 +212,8 @@ label {
 .modal-info-container .more-information .locations,
 .modal-info-container .more-information .drops,
 .modal-info-container .more-information .properties,
-.modal-info-container .more-information .materials-info {
+.modal-info-container .more-information .materials-info,
+.modal-info-container .more-information .treasures-info {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -204,7 +222,8 @@ label {
 .modal-info-container .more-information .locations ul,
 .modal-info-container .more-information .drops ul,
 .modal-info-container .more-information .properties ul,
-.modal-info-container .more-information .materials-info ul {
+.modal-info-container .more-information .materials-info ul,
+.modal-info-container .more-information .treasures-info ul {
   overflow: scroll;
   display: flex;
   flex-direction: column;
@@ -213,7 +232,8 @@ label {
 .modal-info-container .more-information .locations ul li,
 .modal-info-container .more-information .drops ul li,
 .modal-info-container .more-information .properties ul li,
-.modal-info-container .more-information .materials-info ul li {
+.modal-info-container .more-information .materials-info ul li,
+.modal-info-container .more-information .treasures-info ul li {
   display: flex;
   justify-content: space-evenly;
   text-align: left;
@@ -234,11 +254,35 @@ label {
   display: flex;
   flex-wrap: wrap;
 }
+@media screen and (min-width: 1200px) {
+  .list-container {
+    width: 80%;
+  }
+  .list-container .card-container:hover {
+    border: 1px solid #03496f;
+    border-radius: 10px;
+    background-color: rgba(212, 216, 216, 0.089);
+  }
+}
 .list-container .card-container {
   width: 100%;
 }
+@media screen and (min-width: 1200px) {
+  .list-container .card-container {
+    width: 50%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+  }
+}
 
-.searchbar-input {
+.searchbar-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.searchbar-container .searchbar-input {
   width: 90%;
   margin-left: 5%;
   margin-top: 5%;
@@ -246,4 +290,11 @@ label {
   padding: 10px;
   border-radius: 8px;
   border: none;
+}
+@media screen and (min-width: 1200px) {
+  .searchbar-container .searchbar-input {
+    width: 50%;
+    margin-left: 1rem;
+    align-self: center;
+  }
 }/*# sourceMappingURL=index.css.map */
