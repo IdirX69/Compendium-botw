@@ -36,7 +36,7 @@ const ModalInfo = ({ category }: { category: string }) => {
       hearts.push(
         <img
           key={`full-${i}`}
-          src="./heart.png"
+          src="./../heart.png"
           alt="heart"
           style={{ width: "25px", height: "25px" }}
         />
@@ -47,7 +47,7 @@ const ModalInfo = ({ category }: { category: string }) => {
       hearts.push(
         <img
           key="half"
-          src="./half-heart.png"
+          src="./../half-heart.png"
           alt="half heart"
           style={{ width: "25px", height: "25px" }}
         />
@@ -98,9 +98,6 @@ const ModalInfo = ({ category }: { category: string }) => {
             <h5>Category: {data.category}</h5>
             <ul>
               {data.cooking_effect && <li>Effect: {data.cooking_effect}</li>}
-              {data.hearts_recovered && (
-                <li>Hearts recovered: {data.hearts_recovered}</li>
-              )}
             </ul>
           </div>
         );
@@ -150,7 +147,6 @@ const ModalInfo = ({ category }: { category: string }) => {
             {renderHearts(data.hearts_recovered)}
           </div>
         )}
-        <img src="./../../public/korogu.png" alt="" className="korogu-img" />
         <p>{data.description}</p>
       </div>
       <div className="more-information">
