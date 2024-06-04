@@ -10,18 +10,14 @@ import Loading from "../components/Loading";
 const Home = ({ element }: { element: string }) => {
   const [search, setSearch] = useState("");
   const [modal, setModal] = useState(false);
-  const [modalId, setModalId] = useState(0);
 
   const navigate = useNavigate();
 
-  const handleClick = (id: number) => {
+  const handleClick = (id) => {
     if (window.innerWidth < 768) {
-      // Si la largeur de l'écran est supérieure à 768px, redirige vers une autre page
       navigate(`/${element}/${id}`);
     } else {
-      // Si la largeur de l'écran est inférieure ou égale à 768px, afficher un message d'alerte
       setModal(true);
-      setModalId(id);
     }
   };
 
@@ -30,7 +26,7 @@ const Home = ({ element }: { element: string }) => {
       <Header />
 
       <SearchBar setSearch={setSearch} />
-      {modal && <ModalInfo id={modalId} category={element} />}
+      {modal && <ModalInfo category={element} />}
       <List handleClick={handleClick} search={search} element={element} />
     </div>
   );

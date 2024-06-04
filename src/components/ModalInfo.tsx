@@ -3,21 +3,25 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Loading from "./Loading";
 import { Data } from "../types/types";
-const ModalInfo = ({ id, category }) => {
-  const [data, setData] = useState<Data>([]);
+
+const ModalInfo = ({ category }) => {
+  const [data, setData] = useState<Data | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const { paramId } = useParams();
-  console.log(id);
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
+      if (!id) {
+        setError("Invalid parameter ID.");
+        setLoading(false);
+        return;
+      }
+
       try {
         const res = await axios.get(
-          `https://botw-compendium.herokuapp.com/api/v3/compendium/entry/${
-            id ? id : paramId
-          }`
+          `https://botw-compendium.herokuapp.com/api/v3/compendium/entry/${id}`
         );
         setData(res.data.data);
         setLoading(false);
@@ -28,7 +32,7 @@ const ModalInfo = ({ id, category }) => {
     };
 
     fetchData();
-  }, [category, id, paramId]);
+  }, [category, id]);
 
   const renderHearts = (recovery: number) => {
     const hearts = [];
@@ -135,6 +139,7 @@ const ModalInfo = ({ id, category }) => {
         return null;
     }
   };
+
   if (loading) return <Loading />;
   if (error) return <div>{error}</div>;
   return (
@@ -154,7 +159,7 @@ const ModalInfo = ({ id, category }) => {
       </div>
       <div className="more-information">
         {renderCategorySpecificInfo()}
-        {data.common_locations && (
+        {data?.common_locations && (
           <div className="locations">
             <h5>Locations</h5>
             <ul>
