@@ -142,7 +142,7 @@ const ModalInfo = ({ category, id, setModal }) => {
         return null;
     }
   };
-
+  if (loading) return <Loading />;
   return (
     <div className="modal">
       <div className="modal-info-container">
