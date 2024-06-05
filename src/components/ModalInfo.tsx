@@ -146,8 +146,12 @@ const ModalInfo = ({ category, id, setModal }) => {
   return (
     <div className="modal">
       <div className="modal-info-container">
-        <span onClick={handleClick}>
-          <img src="./../../public/back-button.png" alt="" />
+        <span>
+          <img
+            src="./../../public/back-button.png"
+            alt=""
+            onClick={handleClick}
+          />
         </span>
         <h4>{data && data.name}</h4>
         <div className="info-container">

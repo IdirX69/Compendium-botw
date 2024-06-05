@@ -120,6 +120,11 @@ li {
   margin-top: 10px;
   height: 120px;
 }
+@media screen and (min-width: 1200px) {
+  .header-container img {
+    height: 210px;
+  }
+}
 .header-container div {
   height: 100px;
   width: 90%;
@@ -221,6 +226,7 @@ li {
   padding: 10px 0px 0px 10px;
 }
 .modal .modal-info-container span img {
+  cursor: pointer;
   margin: 0px;
   height: 40px;
 }
@@ -351,19 +357,19 @@ li {
   margin: 2rem;
 }
 .modal .modal-info-container ::-webkit-scrollbar {
-  width: 0px;
+  width: 5px;
   height: 0px;
 }
 .modal .modal-info-container ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: rgba(255, 255, 255, 0);
   border-radius: 10px;
 }
 .modal .modal-info-container ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: white;
   border-radius: 10px;
 }
 .modal .modal-info-container ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #cbc1c1;
 }
 
 .list-container {
@@ -389,6 +395,7 @@ li {
 }
 .list-container .card-container {
   width: 100%;
+  cursor: pointer;
 }
 @media screen and (min-width: 1200px) {
   .list-container .card-container {

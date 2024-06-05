@@ -9,6 +9,9 @@
   img {
     margin-top: 10px;
     height: 120px;
+    @media screen and (min-width: 1200px) {
+      height: 210px;
+    }
   }
   div {
     height: 100px;

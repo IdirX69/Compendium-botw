@@ -19,6 +19,7 @@
 
   .card-container {
     width: 100%;
+    cursor: pointer;
     @media screen and (min-width: 1200px) {
       width: 30%;
       height: 150px;
