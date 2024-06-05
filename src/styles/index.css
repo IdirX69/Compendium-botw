@@ -175,15 +175,23 @@ li {
   align-items: center;
   z-index: 2000;
   position: fixed;
+  top: 0%;
 }
 .modal .modal-info-container {
+  position: fixed;
+  top: 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  width: 90%;
+  height: 80%;
+  background-color: rgb(13, 66, 74);
+  border-radius: 10px;
 }
 @media screen and (min-width: 1200px) {
   .modal .modal-info-container {
+    top: 0;
     width: 30%;
     height: 90%;
     background-color: rgb(13, 66, 74);
@@ -194,10 +202,16 @@ li {
 }
 .modal .modal-info-container span {
   width: 100%;
+  padding: 10px 0px 0px 10px;
 }
 .modal .modal-info-container span img {
-  margin: 10px;
+  margin: 0px;
   height: 40px;
+}
+@media screen and (min-width: 1200px) {
+  .modal .modal-info-container span img {
+    margin: 0;
+  }
 }
 .modal .modal-info-container h4 {
   text-align: center;
@@ -219,7 +233,6 @@ li {
   width: 85%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
 }
 @media screen and (min-width: 1200px) {
@@ -237,6 +250,7 @@ li {
 }
 .modal .modal-info-container .info-container p {
   margin: 2rem;
+  margin-bottom: 0;
   width: 100%;
   z-index: 2;
   background-color: rgba(255, 255, 255, 0.13);
@@ -253,13 +267,12 @@ li {
   }
 }
 .modal .modal-info-container .info-container img {
-  width: 100%;
   border-radius: 10px;
+  height: 200px;
 }
 @media screen and (min-width: 1200px) {
   .modal .modal-info-container .info-container img {
-    height: 320px;
-    width: 300px;
+    height: 280px;
   }
 }
 .modal .modal-info-container .more-information {

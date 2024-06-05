@@ -107,10 +107,8 @@ const ModalInfo = ({ category, id, setModal }) => {
       case "materials":
         return (
           <div className="materials-info">
-            <h5>Category: {data.category}</h5>
-            <ul>
-              {data.cooking_effect && <li>Effect: {data.cooking_effect}</li>}
-            </ul>
+            <h5>Effect</h5>
+            <ul>{data.cooking_effect && <li> {data.cooking_effect}</li>}</ul>
           </div>
         );
       case "creatures":

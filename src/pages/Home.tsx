@@ -12,18 +12,11 @@ const Home = ({ element }: { element: string }) => {
   const [modal, setModal] = useState(false);
   const [modalId, setModalId] = useState(0);
 
-  const navigate = useNavigate();
-
   const handleClick = (id: number) => {
-    if (window.innerWidth < 768) {
-      // Si la largeur de l'écran est supérieure à 768px, redirige vers une autre page
-      navigate(`/${element}/${id}`);
-    } else {
-      // Si la largeur de l'écran est inférieure ou égale à 768px, afficher un message d'alerte
-      setModal(true);
-      setModalId(id);
-      document.body.classList.add("no-scroll");
-    }
+    // Si la largeur de l'écran est inférieure ou égale à 768px, afficher un message d'alerte
+    setModal(true);
+    setModalId(id);
+    document.body.classList.add("no-scroll");
   };
 
   return (
