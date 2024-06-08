@@ -14,7 +14,6 @@ const List = ({
   search: string;
 }) => {
   const [data, setData] = useState<Data[]>([]);
-  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -22,7 +21,6 @@ const List = ({
           `https://botw-compendium.herokuapp.com/api/v3/compendium/category/${element}`
         );
         setData(res.data.data);
-        setLoading(false);
       } catch (error) {
         console.error("Error fetching materials:", error);
       }
@@ -31,10 +29,9 @@ const List = ({
     fetchData();
   }, [element]);
 
-  if (loading) return <Loading />;
-
   return (
     <div className="list-container">
+      <h2>{element}</h2>
       {data
         .sort((a, b) => b.name.localeCompare(a.name))
 

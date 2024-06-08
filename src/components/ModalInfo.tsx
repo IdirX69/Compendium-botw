@@ -3,12 +3,16 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Loading from "./Loading";
 import { Data } from "../types/types";
-const ModalInfo = ({ category }: { category: string }) => {
-  const [data, setData] = useState<Data>([]);
+
+const ModalInfo = ({ category, id, setModal }) => {
+  const [data, setData] = useState<Data | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const { id } = useParams();
+  const handleClick = () => {
+    document.body.classList.remove("no-scroll");
+    setModal(false);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,6 +30,14 @@ const ModalInfo = ({ category }: { category: string }) => {
 
     fetchData();
   }, [category, id]);
+
+  useEffect(() => {
+    document.body.classList.add("no-scroll");
+
+    return () => {
+      document.body.classList.remove("no-scroll");
+    };
+  }, []);
 
   const renderHearts = (recovery: number) => {
     const hearts = [];
@@ -95,10 +107,8 @@ const ModalInfo = ({ category }: { category: string }) => {
       case "materials":
         return (
           <div className="materials-info">
-            <h5>Category: {data.category}</h5>
-            <ul>
-              {data.cooking_effect && <li>Effect: {data.cooking_effect}</li>}
-            </ul>
+            <h5>Effect</h5>
+            <ul>{data.cooking_effect && <li> {data.cooking_effect}</li>}</ul>
           </div>
         );
       case "creatures":
@@ -133,34 +143,35 @@ const ModalInfo = ({ category }: { category: string }) => {
     }
   };
   if (loading) return <Loading />;
-  if (error) return <div>{error}</div>;
   return (
-    <div className="modal-info-container">
-      <span onClick={() => navigate(-1)}>
-        <img src="./../../public/back-button.png" alt="" />
-      </span>
-      <h4>{data && data.name}</h4>
-      <div className="info-container">
-        <img src={data && data.image} alt="image" />
-        {data && data.hearts_recovered > 0 && (
-          <div className="hearts-recovered">
-            {renderHearts(data.hearts_recovered)}
-          </div>
-        )}
-        <p>{data.description}</p>
-      </div>
-      <div className="more-information">
-        {renderCategorySpecificInfo()}
-        {data.common_locations && (
-          <div className="locations">
-            <h5>Locations</h5>
-            <ul>
-              {data.common_locations.map((location, index) => (
-                <li key={index}>{location}</li>
-              ))}
-            </ul>
-          </div>
-        )}
+    <div className="modal">
+      <div className="modal-info-container">
+        <span onClick={handleClick}>
+          <img src="./../../public/back-button.png" alt="" />
+        </span>
+        <h4>{data && data.name}</h4>
+        <div className="info-container">
+          <img src={data && data.image} alt="image" />
+          {data && data.hearts_recovered > 0 && (
+            <div className="hearts-recovered">
+              {renderHearts(data.hearts_recovered)}
+            </div>
+          )}
+          <p>{data?.description}</p>
+        </div>
+        <div className="more-information">
+          {renderCategorySpecificInfo()}
+          {data?.common_locations && (
+            <div className="locations">
+              <h5>Locations</h5>
+              <ul>
+                {data.common_locations.map((location, index) => (
+                  <li key={index}>{location}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

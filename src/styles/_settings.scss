@@ -51,12 +51,39 @@ label {
   user-select: none;
 }
 .loading-container {
-  height: 100%;
-  width: 100%;
-  top: 0;
-  position: absolute;
-  background-color: $color1;
+  position: fixed;
+  top: 10%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 90%;
+  height: 80%;
+  margin: 0 5%;
+  background-color: rgb(13, 66, 74);
+  border-radius: 10px;
+  img {
+    margin-top: 2rem;
+    height: 100px;
+  }
+  @media screen and (min-width: 1200px) {
+    top: 5%;
+    width: 30%;
+    height: 90%;
+    background-color: rgb(13, 66, 74);
+    border-radius: 10px;
+    justify-content: center;
+  }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+li {
+  text-transform: capitalize;
+}
+.no-scroll {
+  overflow: hidden;
 }

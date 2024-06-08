@@ -9,17 +9,24 @@ import Loading from "../components/Loading";
 
 const Home = ({ element }: { element: string }) => {
   const [search, setSearch] = useState("");
-
-  const navigate = useNavigate();
+  const [modal, setModal] = useState(false);
+  const [modalId, setModalId] = useState(0);
 
   const handleClick = (id: number) => {
-    navigate(`/${element}/${id}`);
+    // Si la largeur de l'écran est inférieure ou égale à 768px, afficher un message d'alerte
+    setModal(true);
+    setModalId(id);
+    document.body.classList.add("no-scroll");
   };
 
   return (
     <div className="page-container">
       <Header />
+
       <SearchBar setSearch={setSearch} />
+      {modal && (
+        <ModalInfo id={modalId} setModal={setModal} category={element} />
+      )}
       <List handleClick={handleClick} search={search} element={element} />
     </div>
   );
