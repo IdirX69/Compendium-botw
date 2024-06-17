@@ -33,6 +33,7 @@ function App() {
           path="/treasure/:id"
           element={<ModalInfo category="treasure" />}
         />
+        <Route path="/" element={<Home element="creatures" />} />
         <Route path="/creatures" element={<Home element="creatures" />} />
         <Route path="/equipements" element={<Home element="equipment" />} />
         <Route path="/materials" element={<Home element="materials" />} />

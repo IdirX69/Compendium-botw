@@ -4,11 +4,11 @@
   display: flex;
   flex-wrap: wrap;
   @media screen and (min-width: 1200px) {
-    width: 70%;
+    width: 69%;
     border-radius: 10px;
     background-color: rgb(24, 27, 37);
     align-items: center;
-    justify-content: space-evenly;
+
     margin-top: 0;
     .card-container:hover {
       border: 1px 0px solid $blue1;
@@ -21,7 +21,7 @@
     width: 100%;
     cursor: pointer;
     @media screen and (min-width: 1200px) {
-      width: 30%;
+      width: 31%;
       height: 150px;
       display: flex;
       align-items: center;
