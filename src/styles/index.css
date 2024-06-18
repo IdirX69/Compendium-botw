@@ -436,6 +436,9 @@ li {
   }
 }
 
+.favorite-button-container {
+  z-index: 1000;
+}
 .favorite-button-container button {
   height: 30px;
   background: none;

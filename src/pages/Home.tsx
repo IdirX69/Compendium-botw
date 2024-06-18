@@ -13,10 +13,10 @@ const Home = ({ element }: { element: string }) => {
   const [modalId, setModalId] = useState(0);
 
   const handleClick = (id: number) => {
-    // Si la largeur de l'écran est inférieure ou égale à 768px, afficher un message d'alerte
     setModal(true);
     setModalId(id);
     document.body.classList.add("no-scroll");
+    event.stopPropagation();
   };
 
   return (

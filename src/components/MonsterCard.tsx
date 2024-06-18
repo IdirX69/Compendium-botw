@@ -9,7 +9,7 @@ const ObjectCard = ({ obj }) => {
         <div className="info-object">
           <span>{obj.name}</span>
           <span className="span-id">{obj.id}</span>
-          <FavoriteButton />
+          <FavoriteButton itemId={obj.id} />
         </div>
       </div>
     </div>
