@@ -1,23 +1,19 @@
 import React, { useState, useEffect } from "react";
 
-const FavoriteButton = ({ itemId }) => {
-  // State to track if the item is in favorites
+const FavoriteButton = ({ itemId }: { itemId: number }) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
-  // Initialize the state based on localStorage
   useEffect(() => {
-    let favorites = localStorage.getItem("favorites");
-    if (favorites) {
-      favorites = JSON.parse(favorites);
-      setIsFavorite(favorites.includes(itemId));
-    }
+    const favoritesString = localStorage.getItem("favorites");
+    const favorites = favoritesString ? JSON.parse(favoritesString) : [];
+    setIsFavorite(favorites.includes(itemId));
   }, [itemId]);
 
-  // Function to add/remove favorites
-  const addToFavorites = (id) => {
-    let favorites = localStorage.getItem("favorites");
-    if (favorites) {
-      favorites = JSON.parse(favorites);
+  const addToFavorites = (id: number) => {
+    const favoritesString = localStorage.getItem("favorites");
+    let favorites: number[];
+    if (favoritesString) {
+      favorites = JSON.parse(favoritesString);
     } else {
       favorites = [];
     }
@@ -28,19 +24,17 @@ const FavoriteButton = ({ itemId }) => {
       favorites.push(id);
     }
     localStorage.setItem("favorites", JSON.stringify(favorites));
-    setIsFavorite(favorites.includes(id)); // Update the state
+    setIsFavorite(favorites.includes(id));
   };
 
-  // Handle click with event propagation stopped
-  const handleClick = (e) => {
+  const handleClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     addToFavorites(itemId);
-    console.log(`Toggled item with id ${itemId} in favorites`);
   };
 
   return (
     <div className="favorite-button-container">
-      <button onClick={handleClick}>
+      <button type="button" onClick={handleClick}>
         {isFavorite ? (
           <img src="../favorite.png" alt="Favorite" />
         ) : (
