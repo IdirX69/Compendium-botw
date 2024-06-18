@@ -104,6 +104,27 @@ li {
   height: 70px;
   background-color: #1a1414;
 }
+.page-container .favorite-list-button {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  border: none;
+  height: 40px;
+  width: 40px;
+  border-radius: 25px;
+  background-color: rgba(40, 91, 119, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-container .favorite-list-button img {
+  height: 40px;
+  margin-top: 5px;
+}
+
+.favorite-page-container {
+  background-color: rgb(83, 109, 101);
+}
 
 .header-container {
   width: 100%;

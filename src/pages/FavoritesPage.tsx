@@ -28,7 +28,7 @@ const FavoritesPage = () => {
   );
 
   return (
-    <div>
+    <div className="favorite-page-container">
       <h2>Favorties</h2>
       <div>
         {filteredData.map((element) => (

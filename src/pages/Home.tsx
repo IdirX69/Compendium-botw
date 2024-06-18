@@ -10,6 +10,7 @@ const Home = ({ element }: { element: string }) => {
   const [search, setSearch] = useState("");
   const [modal, setModal] = useState(false);
   const [modalId, setModalId] = useState(0);
+  const [favorite, setFavorite] = useState(false);
 
   const handleClick = (id: number) => {
     setModal(true);
@@ -17,16 +18,24 @@ const Home = ({ element }: { element: string }) => {
     document.body.classList.add("no-scroll");
     event.stopPropagation();
   };
+  if (favorite) {
+    return <FavoritesPage />;
+  }
 
   return (
     <div className="page-container">
       <Header />
-
       <SearchBar setSearch={setSearch} />
       {modal && (
         <ModalInfo id={modalId} setModal={setModal} category={element} />
       )}
       <List handleClick={handleClick} search={search} element={element} />
+      <button
+        onClick={() => setFavorite(true)}
+        className="favorite-list-button"
+      >
+        <img src="../no-heart.png" alt="" />
+      </button>
     </div>
   );
 };
