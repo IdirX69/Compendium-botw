@@ -9,27 +9,25 @@ const FavoriteButton = ({ itemId }: { itemId: number }) => {
     setIsFavorite(favorites.includes(itemId));
   }, [itemId]);
 
-  const addToFavorites = (id: number) => {
+  const toggleFavorite = (id: number) => {
     const favoritesString = localStorage.getItem("favorites");
-    let favorites: number[];
-    if (favoritesString) {
-      favorites = JSON.parse(favoritesString);
-    } else {
-      favorites = [];
-    }
+    let favorites: number[] = favoritesString
+      ? JSON.parse(favoritesString)
+      : [];
 
     if (favorites.includes(id)) {
       favorites = favorites.filter((favoriteId) => favoriteId !== id);
     } else {
       favorites.push(id);
     }
+
     localStorage.setItem("favorites", JSON.stringify(favorites));
     setIsFavorite(favorites.includes(id));
   };
 
   const handleClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    addToFavorites(itemId);
+    toggleFavorite(itemId);
   };
 
   return (

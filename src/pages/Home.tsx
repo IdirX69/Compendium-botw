@@ -18,25 +18,25 @@ const Home = ({ element }: { element: string }) => {
     document.body.classList.add("no-scroll");
     event.stopPropagation();
   };
-  if (favorite) {
-    return <FavoritesPage />;
-  }
 
   return (
-    <div className="page-container">
-      <Header />
-      <SearchBar setSearch={setSearch} />
-      {modal && (
-        <ModalInfo id={modalId} setModal={setModal} category={element} />
-      )}
-      <List handleClick={handleClick} search={search} element={element} />
-      <button
-        onClick={() => setFavorite(true)}
-        className="favorite-list-button"
-      >
-        <img src="../no-heart.png" alt="" />
-      </button>
-    </div>
+    <>
+      <div className="page-container">
+        <Header />
+        <SearchBar setSearch={setSearch} />
+        {favorite && <FavoritesPage />}
+        {modal && (
+          <ModalInfo id={modalId} setModal={setModal} category={element} />
+        )}
+        <List handleClick={handleClick} search={search} element={element} />
+        <button
+          onClick={() => setFavorite(!favorite)}
+          className="favorite-list-button"
+        >
+          <img src="../no-heart.png" alt="" />
+        </button>
+      </div>
+    </>
   );
 };
 

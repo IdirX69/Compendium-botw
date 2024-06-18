@@ -9,6 +9,10 @@ const FavoritesPage = () => {
     return savedFavorites ? JSON.parse(savedFavorites) : [];
   });
 
+  const filteredData = data.filter((element) =>
+    favoritesList.includes(element.id)
+  );
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -23,13 +27,9 @@ const FavoritesPage = () => {
     fetchData();
   }, []);
 
-  const filteredData = data.filter((element) =>
-    favoritesList.includes(element.id)
-  );
-
   return (
     <div className="favorite-page-container">
-      <h2>Favorties</h2>
+      <h2>Favorites</h2>
       <div>
         {filteredData.map((element) => (
           <ObjectCard obj={element} key={element.id} />
