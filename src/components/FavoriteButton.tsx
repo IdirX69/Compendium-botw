@@ -23,6 +23,9 @@ const FavoriteButton = ({ itemId }: { itemId: number }) => {
 
     localStorage.setItem("favorites", JSON.stringify(favorites));
     setIsFavorite(favorites.includes(id));
+
+    const event = new CustomEvent("favoritesUpdated", { detail: favorites });
+    window.dispatchEvent(event);
   };
 
   const handleClick = (e: React.MouseEvent) => {

@@ -1,5 +1,5 @@
-import axios, { Axios } from "axios";
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import ObjectCard from "../components/MonsterCard";
 
 const FavoritesPage = () => {
@@ -25,6 +25,18 @@ const FavoritesPage = () => {
       }
     };
     fetchData();
+  }, []);
+
+  useEffect(() => {
+    const handleFavoritesUpdate = (event) => {
+      setFavoritesList(event.detail);
+    };
+
+    window.addEventListener("favoritesUpdated", handleFavoritesUpdate);
+
+    return () => {
+      window.removeEventListener("favoritesUpdated", handleFavoritesUpdate);
+    };
   }, []);
 
   return (
