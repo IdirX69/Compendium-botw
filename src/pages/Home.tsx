@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SearchBar from "../components/SearchBar";
 import ModalInfo from "../components/ModalInfo";
 import List from "../components/List";
@@ -18,6 +18,18 @@ const Home = ({ element }: { element: string }) => {
     document.body.classList.add("no-scroll");
     event.stopPropagation();
   };
+
+  useEffect(() => {
+    if (favorite) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+
+    return () => {
+      document.body.classList.remove("no-scroll");
+    };
+  }, [favorite]);
 
   return (
     <>
