@@ -5,6 +5,7 @@ import ModalInfo from "../components/ModalInfo";
 import List from "../components/List";
 import Header from "../components/Header";
 import FavoritesPage from "./FavoritesPage";
+import { Data } from "../types/types";
 
 const Home = ({ element }: { element: string }) => {
   const [search, setSearch] = useState("");
@@ -18,6 +19,22 @@ const Home = ({ element }: { element: string }) => {
     document.body.classList.add("no-scroll");
     event.stopPropagation();
   };
+
+  const [data, setData] = useState<Data[]>([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(
+          `https://botw-compendium.herokuapp.com/api/v3/compendium/category/${element}`
+        );
+        setData(res.data.data);
+      } catch (error) {
+        console.error("Error fetching materials:", error);
+      }
+    };
+
+    fetchData();
+  }, [element]);
 
   useEffect(() => {
     if (favorite) {
@@ -40,7 +57,12 @@ const Home = ({ element }: { element: string }) => {
         {modal && (
           <ModalInfo id={modalId} setModal={setModal} category={element} />
         )}
-        <List handleClick={handleClick} search={search} element={element} />
+        <List
+          handleClick={handleClick}
+          search={search}
+          element={element}
+          data={data}
+        />
         <button
           onClick={() => setFavorite(!favorite)}
           className="favorite-list-button"

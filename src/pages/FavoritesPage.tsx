@@ -1,6 +1,7 @@
+import axios, { Axios } from "axios";
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import ObjectCard from "../components/MonsterCard";
+import List from "../components/List";
 
 const FavoritesPage = () => {
   const [data, setData] = useState([]);
@@ -26,27 +27,16 @@ const FavoritesPage = () => {
     };
     fetchData();
   }, []);
-
-  useEffect(() => {
-    const handleFavoritesUpdate = (event) => {
-      setFavoritesList(event.detail);
-    };
-
-    window.addEventListener("favoritesUpdated", handleFavoritesUpdate);
-
-    return () => {
-      window.removeEventListener("favoritesUpdated", handleFavoritesUpdate);
-    };
-  }, []);
+  console.log(filteredData);
 
   return (
-    <div className="favorite-page-container">
-      <h2>Favorites</h2>
-      <div>
-        {filteredData.map((element) => (
-          <ObjectCard obj={element} key={element.id} />
-        ))}
-      </div>
+    <div className="page-container">
+      <List
+        element={"Favorites"}
+        handleClick={undefined}
+        search=""
+        data={filteredData}
+      />
     </div>
   );
 };

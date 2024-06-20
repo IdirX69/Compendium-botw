@@ -1,9 +1,13 @@
 .favorite-page-container {
-  background-color: $blue1;
-  width: 80%;
+  background-color: $black1;
+  width: 90%;
   position: fixed;
-  top: 0;
-  right: 0;
-  height: 100%;
+  top: 1%;
+  right: 5%;
+  height: 98%;
   overflow: scroll;
+  border-radius: 8px;
+  h2 {
+    background-color: $green1;
+  }
 }
