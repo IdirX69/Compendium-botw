@@ -96,15 +96,20 @@ li {
 }
 
 .favorite-page-container {
-  background-color: rgb(31, 31, 31);
   position: fixed;
-  top: 0;
-  width: 100%;
-  height: 100%;
+  top: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  height: 80%;
+  margin: 0 5%;
+  background-color: rgb(13, 66, 74);
+  border-radius: 10px;
   overflow: scroll;
 }
 .favorite-page-container h2 {
-  background-color: rgb(31, 31, 31);
+  background-color: rgb(13, 66, 74);
 }
 
 .header-container {
@@ -221,20 +226,6 @@ li {
     background-color: rgb(13, 66, 74);
     border-radius: 10px;
     justify-content: space-around;
-  }
-}
-.modal .modal-info-container span {
-  width: 100%;
-  padding: 10px 0px 0px 10px;
-}
-.modal .modal-info-container span img {
-  cursor: pointer;
-  margin: 0px;
-  height: 40px;
-}
-@media screen and (min-width: 1200px) {
-  .modal .modal-info-container span img {
-    margin: 0;
   }
 }
 .modal .modal-info-container h4 {
@@ -473,5 +464,22 @@ li {
     background-color: rgb(13, 66, 74);
     border-radius: 10px;
     justify-content: center;
+  }
+}
+
+.back-button-container {
+  width: 90%;
+  padding: 10px 0px 0px 10px;
+  position: fixed;
+  background-color: rgb(13, 66, 74);
+}
+.back-button-container img {
+  cursor: pointer;
+  margin: 0px;
+  height: 40px;
+}
+@media screen and (min-width: 1200px) {
+  .back-button-container img {
+    margin: 0;
   }
 }/*# sourceMappingURL=index.css.map */

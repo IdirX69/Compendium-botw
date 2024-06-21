@@ -1,0 +1,16 @@
+.back-button-container {
+  width: 90%;
+  padding: 10px 0px 0px 10px;
+
+  position: fixed;
+  background-color: rgb(13, 66, 74);
+
+  img {
+    cursor: pointer;
+    margin: 0px;
+    height: 40px;
+    @media screen and (min-width: 1200px) {
+      margin: 0;
+    }
+  }
+}

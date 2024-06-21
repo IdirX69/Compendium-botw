@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react";
 import List from "../components/List";
 import ModalInfo from "../components/ModalInfo";
 import Loading from "../components/Loading";
+import BackButton from "../components/BackButton";
 
-const FavoritesPage = () => {
+const FavoritesPage = ({ setFavorite }) => {
   const [data, setData] = useState([]);
   const [modal, setModal] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -44,16 +45,19 @@ const FavoritesPage = () => {
   if (!loading) return <Loading />;
 
   return (
-    <div className="favorite-page-container">
-      {modal && (
-        <ModalInfo id={modalId} setModal={setModal} category={"Favorites"} />
-      )}
-      <List
-        element={"Favorites"}
-        handleClick={handleClick}
-        search=""
-        data={filteredData}
-      />
+    <div className="modal">
+      <div className="favorite-page-container">
+        {modal && (
+          <ModalInfo id={modalId} setModal={setModal} category={"Favorites"} />
+        )}
+        <BackButton handleClick={() => setFavorite(false)} />
+        <List
+          element={"Favorites"}
+          handleClick={handleClick}
+          search=""
+          data={filteredData}
+        />
+      </div>
     </div>
   );
 };

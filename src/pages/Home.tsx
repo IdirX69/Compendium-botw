@@ -62,7 +62,7 @@ const Home = ({ element }: { element: string }) => {
           element={element}
           data={data}
         />
-        {favorite && <FavoritesPage />}
+        {favorite && <FavoritesPage setFavorite={setFavorite} />}
         <button
           onClick={() => setFavorite(!favorite)}
           className="favorite-list-button"
