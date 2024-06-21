@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Loading from "./Loading";
 import { Data } from "../types/types";
+import BackButton from "./BackButton";
 
 const ModalInfo = ({ category, id, setModal }) => {
   const [data, setData] = useState<Data | null>(null);
@@ -146,9 +147,7 @@ const ModalInfo = ({ category, id, setModal }) => {
   return (
     <div className="modal">
       <div className="modal-info-container">
-        <span onClick={handleClick}>
-          <img src="./../../public/back-button.png" alt="" />
-        </span>
+        <BackButton handleClick={handleClick} />
         <h4>{data && data.name}</h4>
         <div className="info-container">
           <img src={data && data.image} alt="image" />

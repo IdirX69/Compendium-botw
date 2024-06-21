@@ -13,26 +13,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route
-          path="/creatures/:id"
-          element={<ModalInfo category="creatures" />}
-        />
-        <Route
-          path="/equipment/:id"
-          element={<ModalInfo category="equipment" />}
-        />
-        <Route
-          path="/materials/:id"
-          element={<ModalInfo category="materials" />}
-        />
-        <Route
-          path="/monsters/:id"
-          element={<ModalInfo category="monsters" />}
-        />
-        <Route
-          path="/treasure/:id"
-          element={<ModalInfo category="treasure" />}
-        />
+        <Route path="/" element={<Home element="creatures" />} />
         <Route path="/creatures" element={<Home element="creatures" />} />
         <Route path="/equipements" element={<Home element="equipment" />} />
         <Route path="/materials" element={<Home element="materials" />} />

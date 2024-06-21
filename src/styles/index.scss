@@ -1,8 +1,12 @@
 @import "settings";
 @import "./pages/home";
 @import "./pages/page";
+@import "./pages/favorite-page";
 @import "./components/header";
 @import "./components/monster-card";
 @import "./components/modal-info";
 @import "./components/list";
 @import "./components/searchbar";
+@import "./components/favorite-button";
+@import "./components/loading";
+@import "./components/back-button";

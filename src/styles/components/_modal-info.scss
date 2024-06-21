@@ -31,18 +31,6 @@
       justify-content: space-around;
     }
 
-    span {
-      width: 100%;
-      padding: 10px 0px 0px 10px;
-
-      img {
-        margin: 0px;
-        height: 40px;
-        @media screen and (min-width: 1200px) {
-          margin: 0;
-        }
-      }
-    }
     h4 {
       text-align: center;
       font-size: 2rem;
@@ -149,22 +137,22 @@
       }
     }
     ::-webkit-scrollbar {
-      width: 0px;
+      width: 5px;
       height: 0px;
     }
 
     ::-webkit-scrollbar-track {
-      background: #f1f1f1;
+      background: rgba(255, 255, 255, 0);
       border-radius: 10px;
     }
 
     ::-webkit-scrollbar-thumb {
-      background: #888;
+      background: white;
       border-radius: 10px;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-      background: #555;
+      background: #cbc1c1;
     }
   }
 }

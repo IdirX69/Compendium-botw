@@ -8,27 +8,13 @@ const List = ({
   element,
   handleClick,
   search,
+  data,
 }: {
   element: string;
   handleClick: (id: number) => void;
-  search: string;
+  search?: string | null;
+  data: Data[];
 }) => {
-  const [data, setData] = useState<Data[]>([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get(
-          `https://botw-compendium.herokuapp.com/api/v3/compendium/category/${element}`
-        );
-        setData(res.data.data);
-      } catch (error) {
-        console.error("Error fetching materials:", error);
-      }
-    };
-
-    fetchData();
-  }, [element]);
-
   return (
     <div className="list-container">
       <h2>{element}</h2>

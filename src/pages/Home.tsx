@@ -4,31 +4,73 @@ import SearchBar from "../components/SearchBar";
 import ModalInfo from "../components/ModalInfo";
 import List from "../components/List";
 import Header from "../components/Header";
-import { useNavigate } from "react-router-dom";
-import Loading from "../components/Loading";
+import FavoritesPage from "./FavoritesPage";
+import { Data } from "../types/types";
 
 const Home = ({ element }: { element: string }) => {
   const [search, setSearch] = useState("");
   const [modal, setModal] = useState(false);
   const [modalId, setModalId] = useState(0);
+  const [favorite, setFavorite] = useState(false);
 
   const handleClick = (id: number) => {
-    // Si la largeur de l'écran est inférieure ou égale à 768px, afficher un message d'alerte
     setModal(true);
     setModalId(id);
     document.body.classList.add("no-scroll");
+    event.stopPropagation();
   };
 
-  return (
-    <div className="page-container">
-      <Header />
+  const [data, setData] = useState<Data[]>([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(
+          `https://botw-compendium.herokuapp.com/api/v3/compendium/category/${element}`
+        );
+        setData(res.data.data);
+      } catch (error) {
+        console.error("Error fetching materials:", error);
+      }
+    };
 
-      <SearchBar setSearch={setSearch} />
-      {modal && (
-        <ModalInfo id={modalId} setModal={setModal} category={element} />
-      )}
-      <List handleClick={handleClick} search={search} element={element} />
-    </div>
+    fetchData();
+  }, [element]);
+
+  useEffect(() => {
+    if (favorite) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+
+    return () => {
+      document.body.classList.remove("no-scroll");
+    };
+  }, [favorite]);
+
+  return (
+    <>
+      <div className="page-container">
+        <Header />
+        <SearchBar setSearch={setSearch} />
+        {modal && (
+          <ModalInfo id={modalId} setModal={setModal} category={element} />
+        )}
+        <List
+          handleClick={handleClick}
+          search={search}
+          element={element}
+          data={data}
+        />
+        {favorite && <FavoritesPage setFavorite={setFavorite} />}
+        <button
+          onClick={() => setFavorite(!favorite)}
+          className="favorite-list-button"
+        >
+          <img src="../no-heart.png" alt="" />
+        </button>
+      </div>
+    </>
   );
 };
 

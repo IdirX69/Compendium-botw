@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: flex-end;
   @media screen and (min-width: 1200px) {
-    width: 70%;
+    width: 69%;
   }
   .searchbar-input {
     width: 90%;
@@ -12,11 +12,14 @@
     margin-top: 5%;
     height: 30px;
     padding: 10px;
-    border-radius: 8px;
+    border-radius: 2px;
     border: none;
+    outline: none;
+    background-color: $blue1;
+    color: white;
+
     @media screen and (min-width: 1200px) {
       width: 30%;
-      margin-left: 1rem;
       align-self: flex-end;
     }
   }
