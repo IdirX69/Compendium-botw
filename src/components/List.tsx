@@ -11,8 +11,8 @@ const List = ({
   data,
 }: {
   element: string;
-  handleClick?: (id: number) => void;
-  search?: string;
+  handleClick: (id: number) => void;
+  search?: string | null;
   data: Data[];
 }) => {
   return (
