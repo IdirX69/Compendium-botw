@@ -89,6 +89,17 @@ li {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  z-index: 10000;
+}
+@media screen and (min-width: 1200px) {
+  .page-container .favorite-list-button {
+    right: 5%;
+    bottom: 1%;
+    height: 70px;
+    width: 70px;
+    border-radius: 50px;
+  }
 }
 .page-container .favorite-list-button img {
   height: 32px;
@@ -108,8 +119,36 @@ li {
   border-radius: 10px;
   overflow: scroll;
 }
+@media screen and (min-width: 1200px) {
+  .favorite-page-container {
+    top: 10%;
+    right: 0%;
+    background-color: rgb(13, 66, 74);
+    border-radius: 10px;
+    overflow: scroll;
+  }
+}
 .favorite-page-container h2 {
   background-color: rgb(13, 66, 74);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 0px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #cbc1c1;
 }
 
 .header-container {
@@ -468,9 +507,8 @@ li {
 }
 
 .back-button-container {
-  width: 90%;
+  width: 100%;
   padding: 10px 0px 0px 10px;
-  position: fixed;
   background-color: rgb(13, 66, 74);
 }
 .back-button-container img {
