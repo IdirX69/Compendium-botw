@@ -53,7 +53,6 @@ const Home = ({ element }: { element: string }) => {
       <div className="page-container">
         <Header />
         <SearchBar setSearch={setSearch} />
-        {favorite && <FavoritesPage />}
         {modal && (
           <ModalInfo id={modalId} setModal={setModal} category={element} />
         )}
@@ -63,6 +62,7 @@ const Home = ({ element }: { element: string }) => {
           element={element}
           data={data}
         />
+        {favorite && <FavoritesPage />}
         <button
           onClick={() => setFavorite(!favorite)}
           className="favorite-list-button"

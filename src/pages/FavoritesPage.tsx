@@ -1,12 +1,13 @@
 import axios, { Axios } from "axios";
 import React, { useEffect, useState } from "react";
-import ObjectCard from "../components/MonsterCard";
 import List from "../components/List";
 import ModalInfo from "../components/ModalInfo";
+import Loading from "../components/Loading";
 
 const FavoritesPage = () => {
   const [data, setData] = useState([]);
   const [modal, setModal] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [modalId, setModalId] = useState(0);
 
   const [favoritesList, setFavoritesList] = useState(() => {
@@ -32,16 +33,18 @@ const FavoritesPage = () => {
           `https://botw-compendium.herokuapp.com/api/v3/compendium/all`
         );
         setData(res.data.data);
+        setLoading(true);
       } catch (error) {
         console.error("Error fetching materials:", error);
       }
     };
     fetchData();
-  }, []);
-  console.log(filteredData);
+  }, [favoritesList]);
+
+  if (!loading) return <Loading />;
 
   return (
-    <div className="page-container">
+    <div className="favorite-page-container">
       {modal && (
         <ModalInfo id={modalId} setModal={setModal} category={"Favorites"} />
       )}
