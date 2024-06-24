@@ -7,7 +7,7 @@ import Header from "../components/Header";
 import FavoritesPage from "./FavoritesPage";
 import { Data } from "../types/types";
 
-const Home = ({ element }: { element: string }) => {
+const Page = ({ element }: { element: string }) => {
   const [search, setSearch] = useState("");
   const [modal, setModal] = useState(false);
   const [modalId, setModalId] = useState(0);
@@ -74,4 +74,4 @@ const Home = ({ element }: { element: string }) => {
   );
 };
 
-export default Home;
+export default Page;
