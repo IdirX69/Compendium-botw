@@ -22,3 +22,9 @@ export interface ModalInfoProps {
   id: number;
   setModal: (isOpen: boolean) => void;
 }
+
+declare global {
+  interface WindowEventMap {
+    favoritesUpdated: CustomEvent;
+  }
+}

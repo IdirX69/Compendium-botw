@@ -37,6 +37,13 @@ const ModalInfo: React.FC<ModalInfoProps> = ({ category, id, setModal }) => {
     };
   }, []);
 
+  const handleModalClick = (e: React.MouseEvent) => {
+    if ((e.target as HTMLElement).classList.contains("modal")) {
+      setModal(false);
+      document.body.classList.remove("no-scroll");
+    }
+  };
+
   const renderHearts = (recovery: number) => {
     const hearts = [];
     const fullHearts = Math.floor(recovery);
@@ -142,7 +149,7 @@ const ModalInfo: React.FC<ModalInfoProps> = ({ category, id, setModal }) => {
   };
   if (loading) return <Loading />;
   return (
-    <div className="modal">
+    <div className="modal" onClick={handleModalClick}>
       <div className="modal-info-container">
         <BackButton handleClick={handleClick} />
         <h4>{data && data.name}</h4>
