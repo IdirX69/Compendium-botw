@@ -8,10 +8,10 @@ import FavoritesPage from "./FavoritesPage";
 import { Data } from "../types/types";
 
 const Page = ({ element }: { element: string }) => {
-  const [search, setSearch] = useState("");
-  const [modal, setModal] = useState(false);
-  const [modalId, setModalId] = useState(0);
-  const [favorite, setFavorite] = useState(false);
+  const [search, setSearch] = useState<string>("");
+  const [modal, setModal] = useState<boolean>(false);
+  const [modalId, setModalId] = useState<number>(0);
+  const [favorite, setFavorite] = useState<boolean>(false);
 
   const handleClick = (id: number) => {
     setModal(true);

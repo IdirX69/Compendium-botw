@@ -17,3 +17,8 @@ export interface Data {
   value?: number;
   common_locations?: string[];
 }
+export interface ModalInfoProps {
+  category: string;
+  id: number;
+  setModal: (isOpen: boolean) => void;
+}

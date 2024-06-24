@@ -1,15 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
 import Loading from "./Loading";
-import { Data } from "../types/types";
+import { Data, ModalInfoProps } from "../types/types";
 import BackButton from "./BackButton";
 
-const ModalInfo = ({ category, id, setModal }) => {
+const ModalInfo: React.FC<ModalInfoProps> = ({ category, id, setModal }) => {
   const [data, setData] = useState<Data | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-  const navigate = useNavigate();
   const handleClick = () => {
     document.body.classList.remove("no-scroll");
     setModal(false);
@@ -24,7 +21,7 @@ const ModalInfo = ({ category, id, setModal }) => {
         setData(res.data.data);
         setLoading(false);
       } catch (err) {
-        setError("Erreur lors de la récupération des données.");
+        console.error("Erreur lors de la récupération des données.");
         setLoading(false);
       }
     };
