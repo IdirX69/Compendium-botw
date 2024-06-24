@@ -126,6 +126,9 @@ li {
   max-height: 80%;
   overflow-y: auto;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .favorite-page-container h2 {
