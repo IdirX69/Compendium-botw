@@ -412,6 +412,7 @@ li {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  width: 75%;
 }
 @media screen and (min-width: 1200px) {
   .list-container {
@@ -431,7 +432,7 @@ li {
 }
 @media screen and (min-width: 1200px) {
   .list-container .card-container {
-    max-width: 50%;
+    max-width: 25%;
     height: 150px;
     display: flex;
     align-items: center;
@@ -458,8 +459,8 @@ li {
   border-radius: 2px;
   border: none;
   outline: none;
-  background-color: #03496f;
-  color: white;
+  background-color: white;
+  color: #e0d1ad;
 }
 @media screen and (min-width: 1200px) {
   .searchbar-container .searchbar-input {
