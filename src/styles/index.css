@@ -412,12 +412,12 @@ li {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  width: 75%;
 }
 @media screen and (min-width: 1200px) {
   .list-container {
     border-radius: 10px;
     background-color: rgb(24, 27, 37);
+    width: 90%;
     margin-top: 0;
   }
   .list-container .card-container:hover {
@@ -440,14 +440,15 @@ li {
 }
 
 .searchbar-container {
-  width: 80%;
+  width: 95%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
 }
 @media screen and (min-width: 1200px) {
   .searchbar-container {
-    width: 69%;
+    width: 75%;
   }
 }
 .searchbar-container .searchbar-input {
@@ -460,7 +461,7 @@ li {
   border: none;
   outline: none;
   background-color: white;
-  color: #e0d1ad;
+  color: black;
 }
 @media screen and (min-width: 1200px) {
   .searchbar-container .searchbar-input {
@@ -473,6 +474,7 @@ li {
   height: 30px;
   background: none;
   border: none;
+  cursor: pointer;
 }
 .favorite-button-container button img {
   height: 20px !important;

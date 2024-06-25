@@ -1,10 +1,11 @@
 .searchbar-container {
-  width: 80%;
+  width: 95%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
   @media screen and (min-width: 1200px) {
-    width: 69%;
+    width: 75%;
   }
   .searchbar-input {
     width: 90%;
@@ -16,7 +17,7 @@
     border: none;
     outline: none;
     background-color: white;
-    color: $text1;
+    color: black;
 
     @media screen and (min-width: 1200px) {
       width: 30%;
