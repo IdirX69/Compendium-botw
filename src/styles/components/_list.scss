@@ -1,14 +1,12 @@
 .list-container {
-  width: 100%;
   margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   @media screen and (min-width: 1200px) {
-    width: 69%;
     border-radius: 10px;
     background-color: rgb(24, 27, 37);
-    align-items: center;
-
+    width: 90%;
     margin-top: 0;
     .card-container:hover {
       border: 1px 0px solid $blue1;
@@ -21,11 +19,10 @@
     width: 100%;
     cursor: pointer;
     @media screen and (min-width: 1200px) {
-      width: 31%;
+      max-width: 25%;
       height: 150px;
       display: flex;
       align-items: center;
-      margin: 10px;
     }
   }
 }

@@ -1,15 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
 import Loading from "./Loading";
-import { Data } from "../types/types";
+import { Data, ModalInfoProps } from "../types/types";
 import BackButton from "./BackButton";
 
-const ModalInfo = ({ category, id, setModal }) => {
+const ModalInfo: React.FC<ModalInfoProps> = ({ category, id, setModal }) => {
   const [data, setData] = useState<Data | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-  const navigate = useNavigate();
   const handleClick = () => {
     document.body.classList.remove("no-scroll");
     setModal(false);
@@ -24,7 +21,7 @@ const ModalInfo = ({ category, id, setModal }) => {
         setData(res.data.data);
         setLoading(false);
       } catch (err) {
-        setError("Erreur lors de la récupération des données.");
+        console.error("Erreur lors de la récupération des données.");
         setLoading(false);
       }
     };
@@ -39,6 +36,13 @@ const ModalInfo = ({ category, id, setModal }) => {
       document.body.classList.remove("no-scroll");
     };
   }, []);
+
+  const handleModalClick = (e: React.MouseEvent) => {
+    if ((e.target as HTMLElement).classList.contains("modal")) {
+      setModal(false);
+      document.body.classList.remove("no-scroll");
+    }
+  };
 
   const renderHearts = (recovery: number) => {
     const hearts = [];
@@ -145,7 +149,7 @@ const ModalInfo = ({ category, id, setModal }) => {
   };
   if (loading) return <Loading />;
   return (
-    <div className="modal">
+    <div className="modal" onClick={handleModalClick}>
       <div className="modal-info-container">
         <BackButton handleClick={handleClick} />
         <h4>{data && data.name}</h4>
